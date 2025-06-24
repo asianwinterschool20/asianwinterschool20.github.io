@@ -60,23 +60,15 @@
 
     .navbar-custom {
       background-color: rgba(65, 40, 30, 0.95);
-      justify-content: flex-start;
-    }
-
-    .navbar-custom .navbar-nav {
-      flex-direction: row;
-      justify-content: flex-start;
-      width: 100%;
     }
 
     .navbar-custom .nav-link {
-      color: #f7f2ee !important;  /* same as header text */
+      color: #f7f2ee !important;
       font-weight: 500;
-      padding: 0.5rem 1rem;
     }
 
     .navbar-custom .nav-link:hover {
-      color: #ffd79a !important; /* soft terracotta accent on hover */
+      color: #fdd197 !important;
       text-decoration: underline;
     }
 
@@ -118,8 +110,11 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
       <div class="container">
-        <div class="collapse navbar-collapse show justify-content-start" id="navbarNav">
-          <ul class="navbar-nav">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
             <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
             <li class="nav-item"><a class="nav-link" href="#schedule">Schedule</a></li>
             <li class="nav-item"><a class="nav-link" href="#registration">Registration</a></li>
