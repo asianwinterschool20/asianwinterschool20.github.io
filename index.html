@@ -58,6 +58,10 @@
       flex-shrink: 0;
     }
 
+    .hero-logo:hover {
+      cursor: pointer;
+    }
+
     .navbar-custom {
       background-color: rgba(60, 80, 100, 0.95);
     }
@@ -87,6 +91,16 @@
       border-radius: 0.25rem;
     }
 
+    .funding-ack a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .funding-ack a:hover {
+      color: #004085;
+      text-decoration: underline;
+    }
+
     footer {
       background-color: rgba(248, 249, 250, 0.95);
       padding: 1rem;
@@ -104,7 +118,9 @@
           <h1>The 20th Asian Winter School<br>on Strings, Particles and Cosmology</h1>
           <p class="lead">IISER Bhopal | 11th–20th January 2026</p>
         </div>
-        <img alt="Indian Roller on IISER Bhopal campus" src="AWS bird.png" class="hero-logo">
+        <a href="https://en.wikipedia.org/wiki/Indian_roller" target="_blank" title="Indian roller">
+          <img alt="Indian Roller on IISER Bhopal campus" src="AWS bird.png" class="hero-logo">
+        </a>
       </div>
     </div>
 
@@ -128,19 +144,19 @@
   </header>
 
   <section id="about" class="section">
-  <div class="container">
-    <h2>About the School</h2>
-    <p>
-      The Asian Winter School (AWS) on Strings, Particles, and Cosmology is a pan-Asian initiative by high-energy theorists from China, India, Japan, and Korea. It provides young researchers in Asia with an opportunity to learn about recent developments in high-energy theory from leading experts.
-    </p>
-    <p>
-      Now in its 20th edition, the school is aimed at advanced graduate students, postdoctoral fellows, and active researchers. It offers a platform for participants to engage in discussions with world experts and foster collaborations with peers from different countries, continuing a tradition of building a vibrant regional community in theoretical physics.
-    </p>
-    <div class="funding-ack" role="alert" style="font-weight: bold;">
-      The organisers gratefully acknowledge the generous support of the <em>Murty Trust</em>, whose funding has made the Indian chapter of the 2026 Asian Winter School possible.
+    <div class="container">
+      <h2>About the School</h2>
+      <p>
+        The Asian Winter School (AWS) on Strings, Particles, and Cosmology is a pan-Asian initiative by high-energy theorists from China, India, Japan, and Korea. It provides young researchers in Asia with an opportunity to learn about recent developments in high-energy theory from leading experts.
+      </p>
+      <p>
+        Now in its 20th edition, the school is aimed at advanced graduate students, postdoctoral fellows, and active researchers. It offers a platform for participants to engage in discussions with world experts and foster collaborations with peers from different countries, continuing a tradition of building a vibrant regional community in theoretical physics.
+      </p>
+      <div class="funding-ack" role="alert">
+        We gratefully acknowledge the generous support of the <a href="https://www.murtytrust.org/" target="_blank" rel="noopener noreferrer">Murty Trust</a>, whose funding has made the Indian chapter of the 2026 Asian Winter School possible.
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <section id="schedule" class="section">
     <div class="container">
