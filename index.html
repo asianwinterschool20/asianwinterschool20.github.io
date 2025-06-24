@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Asian Winter School - IISER Bhopal</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <style>
+  <!-- <style>
     body {
       padding-top: 3rem;
     }
@@ -25,11 +25,49 @@
       text-align: center;
       margin-top: 2rem;
     }
+  </style> -->
+
+  <style>
+    body {
+      padding-top: 3rem;
+      background-image: url("background.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      backdrop-filter: brightness(0.8);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(255, 255, 255, 0.85);
+      z-index: -1;
+    }
+    .hero {
+      background-color: rgba(0, 51, 102, 0.85);
+      color: white;
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+    /* .section {
+      padding: 2rem 1rem;
+      background-color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 1rem;
+      border-radius: 8px;
+    } */
+    footer {
+      background-color: rgba(248, 249, 250, 0.95);
+      padding: 1rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
   </style>
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
     <div class="container">
       <a class="navbar-brand" href="#">Asian Winter School</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -51,16 +89,17 @@
   <header class="hero">
     <div class="container">
       <h1 class="display-4">Asian Winter School</h1>
-      <p class="lead">IISER Bhopal | Coming Soon</p>
+      <p class="lead">IISER Bhopal | 10th-20th January 2026</p>
+      <p id="about">The Asian Winter School (AWS) on Strings, Particles, and Cosmology is a pan-Asian initiative by high-energy theorists from China, India, Japan, and Korea. It provides young researchers in Asia an opportunity to learn about recent developments in high-energy theory from leading experts. Now in its 20th edition, the school is aimed at advanced graduate students, postdoctoral fellows, and active researchers. It offers a platform for participants to engage in discussions with world experts and to foster collaborations with peers from different countries, continuing a tradition of building a vibrant regional community in theoretical physics. The organisers are indebtedly grateful to the Murty Trust for generously funding the current Indian chapter of the Asian Winter School.</p>
     </div>
   </header>
 
-  <section id="about" class="section">
+  <!-- <section id="about" class="section">
     <div class="container">
       <h2>About</h2>
       <p>The Asian Winter School (AWS) on Strings, Particles, and Cosmology is a pan-Asian initiative by high-energy theorists from China, India, Japan, and Korea. It provides young researchers in Asia an opportunity to learn about recent developments in high-energy theory from leading experts. Now in its 20th edition, the school is aimed at advanced graduate students, postdoctoral fellows, and active researchers. It offers a platform for participants to engage in discussions with world experts and to foster collaborations with peers from different countries, continuing a tradition of building a vibrant regional community in theoretical physics. The organisers are indebtedly grateful to the Murty Trust for generously funding the current Indian chapter of the Asian Winter School.</p>
     </div>
-  </section>
+  </section> -->
 
   <section id="schedule" class="section">
     <div class="container">
@@ -69,7 +108,7 @@
     </div>
   </section>
 
-  <section id="registration" class="section bg-light">
+  <section id="registration" class="section">
     <div class="container">
       <h2>Registration</h2>
       <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSeLI5heXVSSAu5qpO7h8jmEU3hiRbQrwhNbzTZCI7OoB_xJgw/viewform?usp=sharing&ouid=104618361252267144213">Fill this form to register</a></p>
@@ -87,13 +126,13 @@
     </div>
   </section>
 
-  <section id="instructors" class="section bg-light">
+  <section id="instructors" class="section">
     <div class="container">
       <h2>Course Instructors</h2>
       <ul>
         <li>Simon Caron-Huot (McGill University, Canada)</li>
         <li>Yiming Chen (Stanford University, USA)</li>
-        <li>Shota Komatsu (CERN, Switzerland)</li>
+        <li>Shota Komatsu (CERN, Switzerland and Imperial College London, UK)</li>
         <li>Shiraz Minwalla (TIFR-Mumbai, India)</li>
         <li>Enrico Pajer (University of Cambridge, UK)</li>
         <li>Shruti Paranjape (Brown University, USA)</li>
