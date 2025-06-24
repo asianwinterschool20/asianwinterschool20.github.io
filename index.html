@@ -6,17 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Asian Winter School - IISER Bhopal</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
- 
-
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      padding-top: 3rem;
+      padding-top: 0;
       background-image: url("background.jpg");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       background-attachment: fixed;
       backdrop-filter: brightness(0.8);
+      font-family: 'Roboto', sans-serif;
     }
 
     body::before {
@@ -26,10 +26,11 @@
       background-color: rgba(255, 255, 255, 0.85);
       z-index: -1;
     }
+
     .hero {
       background-color: rgba(0, 51, 102, 0.85);
       color: white;
-      padding: 4rem 1rem;
+      padding: 3rem 1rem 1rem 1rem;
       text-align: center;
     }
 
@@ -39,20 +40,29 @@
       margin-bottom: 0.5rem;
     }
 
-  .hero p.lead {
-    font-size: 1.1rem;
-    font-weight: 400;
-  }
+    .hero p.lead {
+      font-size: 1.1rem;
+      font-weight: 400;
+    }
+
+    .navbar-custom {
+      background-color: rgba(0, 51, 102, 0.95);
+      justify-content: center;
+    }
+
+    .navbar-custom .navbar-nav {
+      flex-direction: row;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .navbar-custom .nav-link {
+      padding: 0.5rem 1rem;
+    }
 
     .section {
       padding: 1.5rem 1rem 1rem 1rem;
       margin-bottom: 2rem;
-    }
-    footer {
-      background-color: rgba(248, 249, 250, 0.95);
-      padding: 1rem;
-      text-align: center;
-      margin-top: 2rem;
     }
 
     .funding-ack {
@@ -63,56 +73,40 @@
       margin-top: 1.5rem;
       margin-bottom: 1.5rem;
       border-radius: 0.25rem;
-}
+    }
+
+    footer {
+      background-color: rgba(248, 249, 250, 0.95);
+      padding: 1rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
   </style>
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
-    <div class="container">
-      <a class="navbar-brand" href="#">Asian Winter School</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#schedule">Schedule</a></li>
-          <li class="nav-item"><a class="nav-link" href="#registration">Registration</a></li>
-          <li class="nav-item"><a class="nav-link" href="#colloquium">Colloquium</a></li>
-          <li class="nav-item"><a class="nav-link" href="#instructors">Instructors</a></li>
-          <li class="nav-item"><a class="nav-link" href="#committees">Committees</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-<!--   <header class="hero">
-  <div class="container">
-    <h1>
-      <img alt="AWS Logo" src="AWS bird.png" style="height:100px; margin-right:10px;">
-      The 20th Asian Winter School on Strings, Particles and Cosmology
-    </h1>
-    <p class="lead">IISER Bhopal | 11th–20th January 2026</p>
-  </div>
-</header> -->
-
   <header class="hero">
-  <div class="container">
-    <img alt="AWS Logo" src="AWS bird.png" style="height:60px; margin-bottom: 1rem;">
-    <h1>The 20th Asian Winter School<br>on Strings, Particles and Cosmology</h1>
-    <p class="lead">IISER Bhopal | 11th–20th January 2026</p>
-  </div>
-</header>
-
-
-
-  <!-- <section id="about" class="section">
     <div class="container">
-      <h2>About</h2>
-      <p>The Asian Winter School (AWS) on Strings, Particles, and Cosmology is a pan-Asian initiative by high-energy theorists from China, India, Japan, and Korea. It provides young researchers in Asia an opportunity to learn about recent developments in high-energy theory from leading experts. Now in its 20th edition, the school is aimed at advanced graduate students, postdoctoral fellows, and active researchers. It offers a platform for participants to engage in discussions with world experts and to foster collaborations with peers from different countries, continuing a tradition of building a vibrant regional community in theoretical physics. The organisers are indebtedly grateful to the Murty Trust for generously funding the current Indian chapter of the Asian Winter School.</p>
+      <img alt="AWS Logo" src="AWS bird.png" style="height:60px; margin-bottom: 1rem;">
+      <h1>The 20th Asian Winter School<br>on Strings, Particles and Cosmology</h1>
+      <p class="lead">IISER Bhopal | 11th–20th January 2026</p>
     </div>
-  </section> -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+      <div class="container">
+        <div class="collapse navbar-collapse show justify-content-center" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="#schedule">Schedule</a></li>
+            <li class="nav-item"><a class="nav-link" href="#registration">Registration</a></li>
+            <li class="nav-item"><a class="nav-link" href="#colloquium">Colloquium</a></li>
+            <li class="nav-item"><a class="nav-link" href="#instructors">Instructors</a></li>
+            <li class="nav-item"><a class="nav-link" href="#committees">Committees</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
 
   <section id="about" class="section">
   <div class="container">
