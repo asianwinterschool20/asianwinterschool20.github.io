@@ -45,6 +45,21 @@
       font-weight: 400;
     }
 
+    .hero-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  text-align: left;
+}
+
+.hero-logo {
+  height: 60px;
+  flex-shrink: 0;
+}
+
+
     .navbar-custom {
       background-color: rgba(0, 51, 102, 0.95);
       justify-content: center;
@@ -88,8 +103,15 @@
 <body>
   <header class="hero">
     <div class="container">
-      <img alt="AWS Logo" src="AWS bird.png" style="height:60px; margin-bottom: 1rem;">
+<!--       <img alt="AWS Logo" src="AWS bird.png" style="height:60px; margin-bottom: 1rem;">
+      <h1>The 20th Asian Winter School<br>on Strings, Particles and Cosmology</h1> -->
+
+      <div class="hero-flex">
       <h1>The 20th Asian Winter School<br>on Strings, Particles and Cosmology</h1>
+      <img alt="Indian Roller on IISER Bhopal campus" src="AWS bird.png" class="hero-logo">
+      </div>
+
+      
       <p class="lead">IISER Bhopal | 11th–20th January 2026</p>
     </div>
 
