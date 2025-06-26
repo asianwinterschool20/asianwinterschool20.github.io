@@ -118,6 +118,19 @@
       text-decoration: underline;
     }
 
+    .murty-logo {
+      height: 60px;           /* Reduce height for visual balance */
+      max-width: 120px;       /* Prevent it from stretching too wide */
+      object-fit: contain;    /* Keep aspect ratio within the box */
+    }
+
+    .iiser-logo {
+      height: 60px;
+      max-width: 90px;
+      object-fit: contain;
+    }
+
+
     footer {
       background-color: rgba(65, 117, 168, 0.95);
       padding: 1rem;
@@ -145,8 +158,8 @@
         <a href="https://en.wikipedia.org/wiki/Indian_roller" target="_blank" title="Indian Roller – a colorful bird commonly seen at IISER Bhopal during winter">
           <img alt="Indian Roller on IISER Bhopal campus" src="AWS bird.png" class="hero-logo">
         </a>
-        <a> <img alt="Murty Trust logo" src="MurtyTrust_logo.svg" class="hero-logo"></a>
-        <a> <img alt="IISER Bhopal logo" src="iiserblogo.png" class="hero-logo"></a>
+        <a> <img alt="IISER Bhopal logo" src="iiserblogo.png" class="hero-logo iiser-logo"></a>
+        <a> <img alt="Murty Trust logo" src="MurtyTrust_logo.svg" class="hero-logo murty-logo"></a>
       </div>
     </div>
 
