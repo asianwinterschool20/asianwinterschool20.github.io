@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AWS Schedule – Working Responsive Version</title>
+
+<style>
+
+body{
+  font-family: Arial, sans-serif;
+  margin:0;
+  padding:16px;
+  background:#fafafa;
+}
+
+h1{
+  text-align:center;
+  margin-bottom:20px;
+}
+
+
+/* ============================================================= */
+/* DESKTOP TABLE */
+/* ============================================================= */
+
+.schedule-table{
+  width:100%;
+  border-collapse:collapse;
+  table-layout:fixed;
+}
+
+.schedule-table th,
+.schedule-table td{
+  border:1px solid #999;
+  height:60px;
+  padding:6px;
+  text-align:center;
+  vertical-align:middle;
+  font-weight:bold;
+  color:white;
+}
+
+.schedule-table th{
+  background:#003366;
+}
+
+/* color codes */
+.enrico{background:#0066cc;}
+.shruti{background:#b30059;}
+.yiming{background:#009977;}
+.shiraz{background:#cc6600;}
+.simon {background:#6633cc;}
+.shota {background:#cc0033;}
+.julio {background:#004466;}
+.renato{background:#9900aa;}
+.colloq{background:#444;}
+.break{background:#ccc;color:black;}
+
+
+/* ============================================================= */
+/* MOBILE STACKED VERSION */
+/* ============================================================= */
+
+.mobile-day{
+  display:none; /* hidden on desktop */
+  border:1px solid #999;
+  margin-bottom:14px;
+  border-radius:8px;
+  overflow:hidden;
+  background:white;
+}
+
+.mobile-title{
+  padding:10px;
+  background:#003366;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.mobile-events{
+  display:none;
+}
+
+.event-row{
+  display:flex;
+  border-top:1px solid #ddd;
+  min-height:48px;
+}
+
+.time{
+  width:90px;
+  padding:6px;
+  background:#e8e8e8;
+  font-weight:bold;
+  text-align:center;
+}
+
+.event{
+  flex:1;
+  padding:6px;
+  font-weight:bold;
+  color:white;
+}
+
+
+/* speaker color codes reused */
+.event.enrico{background:#0066cc;}
+.event.shruti{background:#b30059;}
+.event.yiming{background:#009977;}
+.event.shiraz{background:#cc6600;}
+.event.simon{background:#6633cc;}
+.event.shota{background:#cc0033;}
+.event.julio{background:#004466;}
+.event.renato{background:#9900aa;}
+.event.break{background:#ccc;color:black;}
+.event.colloq{background:#444;} 
+</style>
+
+</head>
+<body>
+
+
+<h1>Asian Winter School – Schedule</h1>
+
+
+
+<!-- ===================================================================== -->
+<!-- DESKTOP TABLE -->
+<!-- ===================================================================== -->
+
+<table class="schedule-table">
+
+<tr>
+<th>Time</th>
+<th>Sun 11</th>
+<th>Mon 12</th>
+<th>Tue 13</th>
+<th>Wed 14</th>
+<th>Thu 15</th>
+<th>Fri 16</th>
+<th>Sat 17</th>
+<th>Sun 18</th>
+<th>Mon 19</th>
+<th>Tue 20</th>
+</tr>
+
+<tr>
+<th>09:30–11:00</th>
+<td class="enrico">Enrico Lec-1</td>
+<td class="shiraz">Shiraz Lec-1</td>
+<td class="shiraz">Shiraz Lec-2</td>
+<td class="shiraz">Shiraz Lec-3</td>
+<td class="shiraz">Shiraz Lec-4</td>
+<td class="simon">Simon Lec-3</td>
+<td class="colloq">Cristhian Colloquium</td>
+<td class="shota">Shota Lec-3</td>
+<td class="colloq" rowspan="3">Ashoke's Public Lec at RCS and travel to and from RCS</td>
+<td class="julio">Julio Lec-4</td>
+</tr>
+
+<tr>
+<th>11:00–11:30</th>
+<td class="break">Tea</td>
+<td class="break">Tea</td>
+<td class="break">Tea</td>
+<td class="break">Tea</td>
+<td class="break">Tea</td>
+<td class="break">Tea</td>
+<td class="break">Tea</td>
+<td class="break">Tea</td>
+<td class="break">Tea</td>
+</tr>
+
+<tr>
+<th>11:30–13:00</th>
+<td class="shruti">Shruti Lec-1</td>
+<td class="shruti">Shruti Lec-2</td>
+<td class="shruti">Shruti Lec-3</td>
+<td class="shruti">Shruti Lec-4</td>
+<td class="simon">Simon Lec-2</td>
+<td class="shota">Shota Lec-1</td>
+<td class="simon">Simon Lec-4</td>
+<td class="julio">Julio Lec-2</td>
+<td class="renato">Renato Lec-4</td>
+</tr>
+
+<tr>
+<th>13:00–14:30</th>
+<td class="break">Lunch</td>
+<td class="break">Lunch</td>
+<td class="break">Lunch</td>
+<td class="break">Lunch</td>
+<td class="break">Lunch</td>
+<td class="break">Lunch</td>
+<td class="break">Lunch</td>
+<td class="break">Lunch</td>
+<td class="break">Lunch</td>
+<td class="break">Lunch</td>
+</tr>
+
+<tr>
+<th>14:30–16:00</th>
+<td class="yiming">Yiming Lec-1</td>
+<td class="enrico">Enrico Lec-3</td>
+<td class="enrico">Enrico Lec-4</td>
+<td class="simon">Simon Lec-1</td>
+<td class="colloq" rowspan="4">Sanchi Trip</td>
+<td class="renato">Renato Lec-1</td>
+<td class="shota">Shota Lec-2</td>
+<td class="renato">Renato Lec-2</td>
+<td class="renato">Renato Lec-3</td>
+</tr>
+
+<tr>
+<th>16:00–16:30</th>
+<td class="break">Tea</td>
+<td class="break">Tea</td>
+<td class="break">Tea</td>
+<td class="break">Tea</td>
+<td class="break">Tea</td>
+<td class="break">Tea</td>
+<td class="break">Tea</td>
+<td class="break">Tea</td>
+</tr>
+
+<tr>
+<th>16:30–18:00</th>
+<td class="enrico">Enrico Lec-2</td>
+<td class="yiming">Yiming Lec-2</td>
+<td class="yiming">Yiming Lec-3</td>
+<td class="yiming">Yiming Lec-4</td>
+<td class="colloq">Anindya's Colloquium</td>
+<td class="julio">Julio Lec-1</td>
+<td class="shota">Shota Lec-4</td>
+<td class="julio">Julio Lec-3</td>
+</tr>
+
+<tr class="lastrow">
+<th>Evening</th>
+<td class="colloq">Amol's Colloquium from 18:30</td>
+<td></td>
+<td class="colloq">Shiraz's Public Lec at LHC L5 from 18:30</td>
+<td></td>
+<td class="break">Special Dinner from 19:30</td>
+</tr>
+
+</table>
+
+
+
+<!-- ===================================================================== -->
+<!-- MOBILE STACKED SCHEDULE -->
+<!-- ===================================================================== -->
+
+<!-- template repeated for each day -->
+
+<div class="mobile-day">
+  <div class="mobile-title" onclick="toggleDay(this)">Sunday 11</div>
+  <div class="mobile-events">
+    <div class="event-row"><div class="time">09:30</div><div class="event enrico">Enrico</div></div>
+    <div class="event-row"><div class="time">11:00</div><div class="event break">Tea</div></div>
+    <div class="event-row"><div class="time">11:30</div><div class="event shruti">Shruti</div></div>
+    <div class="event-row"><div class="time">13:00</div><div class="event break">Lunch</div></div>
+    <div class="event-row"><div class="time">14:30</div><div class="event yiming">Yiming</div></div>
+    <div class="event-row"><div class="time">16:00</div><div class="event break">Tea</div></div>
+    <div class="event-row"><div class="time">16:30</div><div class="event enrico">Enrico</div></div>
+    <div class="event-row"><div class="time">18:30</div><div class="event colloq">Amol</div></div>
+  </div>
+</div>
+
+<!-- Repeat same structure for all days below -->
+
+</body>
+</html>
