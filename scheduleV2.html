@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AWS Schedule – Working Responsive Version</title>
+
+<style>
+
+body{
+  font-family: Arial, sans-serif;
+  margin:0;
+  padding:16px;
+  background:#fafafa;
+}
+
+h1{
+  text-align:center;
+  margin-bottom:20px;
+}
+
+
+/* ============================================================= */
+/* DESKTOP TABLE */
+/* ============================================================= */
+
+.schedule-table{
+  width: 800px;
+  border-collapse:collapse;
+  table-layout:fixed;
+}
+
+.schedule-table th:not(.break),
+.schedule-table td:not(.break){
+  border:1px solid #999;
+  width:60px;
+  padding:6px;
+  text-align:center;
+  vertical-align:middle;
+  font-weight:bold;
+  text-shadow: 0 0 5px rgb(180, 180, 180);
+  color:white;
+}
+
+.schedule-table th.teabreak,
+.schedule-table td.teabreak{
+    border:1px solid #c18e18;
+    width:20px;
+    padding:2px;
+    font-size:1rem;
+    text-align: center;
+    background: #a54d00a6;
+    color: #ffffffd5;
+    writing-mode: vertical-lr;
+}
+
+.schedule-table th.lunchbreak,
+.schedule-table td.lunchbreak{
+    border:1px solid #afafaf;
+    width:40px;
+    padding:2px;
+    font-size:1rem;
+    text-align: center;
+    background: #e3cc1e;
+    color: #284562;
+    writing-mode: sideways-lr;
+}
+
+.schedule-table th{
+  background:#2b2b2b;
+}
+
+/* color codes */
+.enrico{background:#b7cee6;}
+.shruti{background:#f1aed0;}
+.yiming{background:#84ecbf;}
+.shiraz{background:#f3bc85;}
+.simon {background:#a07de6;}
+.shota {background:#ff7d7d;}
+.julio {background:#72d0ff;}
+.renato{background:#ee8af9;}
+.colloq{background:#dfe681; color: #9251419c !important;}
+.trip{background: #009977; background-image: url("Sanchi_stupa.png"); color: #ffffff !important; font-size: xx-large; text-shadow:0 0 5px black;}
+.break{background:#652b2b9c; color:rgb(198, 62, 62); font-size:large;}
+
+.lec {white-space: nowrap;}
+/* ============================================================= */
+/* MOBILE STACKED VERSION */
+/* ============================================================= */
+
+.mobile-day{
+  display:none; /* hidden on desktop */
+  border:1px solid #999;
+  margin-bottom:14px;
+  border-radius:8px;
+  overflow:hidden;
+  background:white;
+}
+
+.mobile-title{
+  padding:10px;
+  background:#003366;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.mobile-events{
+  display:none;
+}
+
+.event-row{
+  display:flex;
+  border-top:1px solid #ddd;
+  min-height:48px;
+}
+
+.time{
+  width:90px;
+  padding:6px;
+  background:#e8e8e8;
+  font-weight:bold;
+  text-align:center;
+}
+
+.event{
+  flex:1;
+  padding:6px;
+  font-weight:bold;
+  color:white;
+}
+
+
+</style>
+
+</head>
+<body>
+
+
+<h1>Asian Winter School – Schedule</h1>
+
+
+
+<!-- ===================================================================== -->
+<!-- DESKTOP TABLE -->
+<!-- ===================================================================== -->
+
+<table class="schedule-table">
+
+<tr>
+  <th>Day / Time</th>
+  <th>09:30–11:00</th>
+  <th class="break teabreak">11:00–11:30</th>
+  <th>11:30–13:00</th>
+  <th class="break lunchbreak">13:00–14:30</th>
+  <th>14:30–16:00</th>
+  <th class="break teabreak">16:00–16:30</th>
+  <th>16:30–18:00</th>
+  <th>Evening</th>
+</tr>
+
+<tr>
+  <th>Sun 11</th>
+  <td class="enrico">Enrico <br><span class="lec">Lec-1</span></td>
+  <td class="teabreak break" rowspan="8">☕🍪Tea Break☕🍪&nbsp&nbsp&nbsp&nbsp&nbsp ☕🍪Tea Break☕🍪</td>
+  <td class="shruti">Shruti <br><span class="lec">Lec-1</span></td>
+  <td class="lunchbreak break" rowspan="10"> 🍛🍽️🥘 Lunch 🍛🍽️🥘 &nbsp&nbsp&nbsp&nbsp&nbsp 🍛🍽️🥘 Lunch 🍛🍽️🥘</td>
+  <td class="yiming">Yiming <br><span class="lec">Lec-1</span></td>
+  <td class="teabreak break" rowspan="4">☕🍪Tea Break☕🍪</td>
+  <td class="enrico">Enrico <br><span class="lec">Lec-2</span></td>
+  <td class="colloq">Amol’s <br>Colloquium</td>
+</tr>
+
+<tr>
+  <th>Mon 12</th>
+  <td class="shiraz">Shiraz <br><span class="lec">Lec-1</span></td>
+  <td class="shruti">Shruti <br><span class="lec">Lec-2</span></td>
+  <td class="enrico">Enrico <br><span class="lec">Lec-3</span></td>
+  <td class="yiming">Yiming <br><span class="lec">Lec-2</span></td>
+  <td></td>
+</tr>
+
+<tr>
+  <th>Tue 13</th>
+  <td class="shiraz">Shiraz <br><span class="lec">Lec-2</span></td>
+  <td class="shruti">Shruti <br><span class="lec">Lec-3</span></td>
+  <td class="enrico">Enrico <br><span class="lec">Lec-4</span></td>
+  <td class="yiming">Yiming <br><span class="lec">Lec-3</span></td>
+  <td class="colloq">Shiraz's Public Lecture</td>
+</tr>
+
+<tr>
+  <th>Wed 14</th>
+  <td class="shiraz">Shiraz <br><span class="lec">Lec-3</span></td>
+  <td class="shruti">Shruti <br><span class="lec">Lec-4</span></td>
+  <td class="simon">Simon <br><span class="lec">Lec-1</span></td>
+  <td class="yiming">Yiming <br><span class="lec">Lec-4</span></td>
+  <td></td>
+</tr>
+
+<tr>
+  <th>Thu 15</th>
+  <td class="shiraz">Shiraz <br><span class="lec">Lec-4</span></td>
+  <td class="simon">Simon <br><span class="lec">Lec-2</span></td>
+  <td class="trip" colspan="4">Trip to Sanchi</td>
+</tr>
+
+<tr>
+  <th>Fri 16</th>
+  <td class="simon">Simon <br><span class="lec">Lec-3</span></td>
+  <td class="shota">Shota <br><span class="lec">Lec-1</span></td>
+  <td class="renato">Renato <br><span class="lec">Lec-1</span></td>
+  <td class="teabreak break" rowspan="4">☕🍪 Tea Break ☕🍪 </td>
+  <td class="colloq">Anindya’s <br>Colloquium</td>
+  <td></td>
+</tr>
+
+<tr>
+  <th>Sat 17</th>
+  <td class="colloq">Cristhian's <br>Colloquium <br>(online)</td>
+  <td class="simon">Simon <br><span class="lec">Lec-4</span></td>
+  <td class="shota">Shota <br><span class="lec">Lec-2</span></td>
+  <td class="julio">Julio <br><span class="lec">Lec-1</span></td>
+  <td></td>
+</tr>
+
+<tr>
+  <th>Sun 18</th>
+  <td class="shota">Shota <br><span class="lec">Lec-3</span></td>
+  <td class="julio">Julio <br><span class="lec">Lec-2</span></td>
+  <td class="renato">Renato <br><span class="lec">Lec-2</span></td>
+  <td class="shota">Shota <br><span class="lec">Lec-4</span></td>
+  <td class="colloq">Ashoke’s <br>Colloquium</td>
+</tr>
+
+<tr>
+  <th>Mon 19</th>
+  <td class="colloq" colspan="3">Ashoke's Public Lecture at RCS</td>
+  <td class="renato">Renato <br><span class="lec">Lec-3</span></td>
+  <td class="julio">Julio <br><span class="lec">Lec-3</span></td>
+  <td></td>
+</tr>
+
+<tr>
+  <th>Tue 20</th>
+  <td class="julio">Julio <br><span class="lec">Lec-4</span></td>
+  <td class="teabreak break">☕🍪</td>
+  <td class="renato">Renato <br><span class="lec">Lec-4</span></td>
+  <td colspan="4">Free afternoon</td>
+</tr>
+
+</table>
+
+<p>##There will be an inaugural session first from 9am on 11th January</p>
+
+</body>
+</html>

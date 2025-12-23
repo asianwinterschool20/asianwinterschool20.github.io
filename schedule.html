@@ -1,257 +1,1230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AWS Schedule – Working Responsive Version</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS 2025 Schedule | Asian Winter School</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/umd/lucide.min.js"></script>
+    
+    <!-- Tailwind CSS (for styling) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#0f172a',
+                        secondary: '#334155',
+                        'enrico': '#dbeafe', // Blue
+                        'enrico-text': '#1e40af',
+                        'shruti': '#fce7f3', // Pink
+                        'shruti-text': '#9d174d',
+                        'yiming': '#d1fae5', // Emerald
+                        'yiming-text': '#065f46',
+                        'shiraz': '#ffedd5', // Orange
+                        'shiraz-text': '#9a3412',
+                        'simon': '#f3e8ff', // Purple
+                        'simon-text': '#6b21a8',
+                        'shota': '#fee2e2', // Red
+                        'shota-text': '#991b1b',
+                        'julio': '#cffafe', // Cyan
+                        'julio-text': '#155e75',
+                        'renato': '#fae8ff', // Fuchsia
+                        'renato-text': '#86198f',
+                        'colloq': '#fef9c3', // Yellow
+                        'colloq-text': '#854d0e',
+                    }
+                }
+            }
+        }
+    </script>
 
-<style>
+    <style>
+        /*hero */
+        .hero {
+      background-color: rgba(73, 110, 148, 0.9);
+      color: white;
+      padding: 3rem 1rem 1.5rem 1rem;
+      text-align: left;
+    }
 
-body{
-  font-family: Arial, sans-serif;
-  margin:0;
-  padding:16px;
-  background:#fafafa;
-}
+    .hero-flex {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
 
-h1{
-  text-align:center;
-  margin-bottom:20px;
-}
+    .hero h1 {
+      font-size: 2rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
 
+    .hero p.lead {
+      font-size: 1.1rem;
+      font-weight: 400;
+      margin-bottom: 0.25rem;
+    }
 
-/* ============================================================= */
-/* DESKTOP TABLE */
-/* ============================================================= */
+    .hero p.supported {
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
 
-.schedule-table{
-  width: 800px;
-  border-collapse:collapse;
-  table-layout:fixed;
-}
+    .hero p.supported a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-.schedule-table th:not(.break),
-.schedule-table td:not(.break){
-  border:1px solid #999;
-  width:60px;
-  padding:6px;
-  text-align:center;
-  vertical-align:middle;
-  font-weight:bold;
-  text-shadow: 0 0 5px rgb(180, 180, 180);
-  color:white;
-}
+    .hero p.supported a:hover {
+      color: #ffd79a;
+      text-decoration: underline;
+    }
 
-.schedule-table th.teabreak,
-.schedule-table td.teabreak{
-    border:1px solid #c18e18;
-    width:20px;
-    padding:2px;
-    font-size:1rem;
-    text-align: center;
-    background: #a54d00a6;
-    color: #ffffffd5;
-    writing-mode: vertical-lr;
-}
+    .hero-logo {
+      height: 100px;
+      flex-shrink: 0;
+    }
 
-.schedule-table th.lunchbreak,
-.schedule-table td.lunchbreak{
-    border:1px solid #afafaf;
-    width:40px;
-    padding:2px;
-    font-size:1rem;
-    text-align: center;
-    background: #e3cc1e;
-    color: #284562;
-    writing-mode: sideways-lr;
-}
+    .hero-logo:hover {
+      cursor: pointer;
+    }
 
-.schedule-table th{
-  background:#2b2b2b;
-}
+    .navbar-custom {
+      background-color: rgba(60, 80, 100, 0.95);
+    }
 
-/* color codes */
-.enrico{background:#b7cee6;}
-.shruti{background:#f1aed0;}
-.yiming{background:#84ecbf;}
-.shiraz{background:#f3bc85;}
-.simon {background:#a07de6;}
-.shota {background:#ff7d7d;}
-.julio {background:#72d0ff;}
-.renato{background:#ee8af9;}
-.colloq{background:#dfe681; color: #9251419c !important;}
-.trip{background: #009977; background-image: url("Sanchi_stupa.png"); color: #ffffff !important; font-size: xx-large; text-shadow:0 0 5px black;}
-.break{background:#652b2b9c; color:rgb(198, 62, 62); font-size:large;}
+    .navbar-custom .nav-link {
+      color: #f0f8ff !important;
+      font-weight: 500;
+    }
 
-.lec {white-space: nowrap;}
-/* ============================================================= */
-/* MOBILE STACKED VERSION */
-/* ============================================================= */
+    .navbar-custom .nav-link:hover {
+      color: #ffd79a !important;
+      text-decoration: underline;
+    }
 
-.mobile-day{
-  display:none; /* hidden on desktop */
-  border:1px solid #999;
-  margin-bottom:14px;
-  border-radius:8px;
-  overflow:hidden;
-  background:white;
-}
+    .section {
+      padding: 1rem 1rem 0.5rem 1rem;
+      margin-bottom: 1.5rem;
+    }
 
-.mobile-title{
-  padding:10px;
-  background:#003366;
-  color:white;
-  font-weight:bold;
-  cursor:pointer;
-}
+    .funding-ack {
+      background-color: #dff0ff;
+      border-left: 5px solid #007bff;
+      padding: 1rem;
+      font-weight: bold;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 0.25rem;
+    }
 
-.mobile-events{
-  display:none;
-}
+    .funding-ack a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-.event-row{
-  display:flex;
-  border-top:1px solid #ddd;
-  min-height:48px;
-}
+    .funding-ack a:hover {
+      color: #004085;
+      text-decoration: underline;
+    }
 
-.time{
-  width:90px;
-  padding:6px;
-  background:#e8e8e8;
-  font-weight:bold;
-  text-align:center;
-}
+    .murty-logo {
+      height: 100px;           /* Reduce height for visual balance */
+      max-width: 150px;       /* Prevent it from stretching too wide */
+      object-fit: contain;    /* Keep aspect ratio within the box */
+    }
 
-.event{
-  flex:1;
-  padding:6px;
-  font-weight:bold;
-  color:white;
-}
+    .iiser-logo {
+      height: 100px;
+      max-width: 100px;
+      object-fit: contain;
+    }
+
+    .spaced-list li {
+      margin-bottom: 1em;
+    }
 
 
-</style>
 
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+
+        /* Table Specifics */
+        .schedule-grid th {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .schedule-grid th:first-child {
+            position: sticky;
+            left: 0;
+            z-index: 20;
+        }
+
+        /* Mobile specific hiding/showing */
+        @media (max-width: 640px) {
+            .desktop-view { display: none; }
+            .mobile-view { display: block; }
+        }
+        @media (min-width: 641px) {
+            .desktop-view { display: block; }
+            .mobile-view { display: none; }
+        }
+
+        /* Vertical Writing for breaks on desktop */
+        .vertical-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            transform: rotate(180deg);
+        }
+        
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+
+        /* Hover Reveal Effect */
+        .lecture-card .topic-overlay {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.2s ease-out;
+        }
+        .lecture-card:hover .topic-overlay {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .lecture-card:hover .speaker-info {
+            opacity: 0.1;
+            filter: blur(2px);
+        }
+        .lecture-card .speaker-info {
+            transition: all 0.2s ease-in;
+        }
+        
+        /* Text Shadow for better contrast on images */
+        .text-shadow-sm {
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+
+        /* --- Header Transitions for Shrink Effect --- */
+        #main-header {
+            transition: padding 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;
+        }
+        
+        /* Scrolled State Styles */
+        #main-header.is-scrolled {
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+            background-color: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        /* Title shrinking */
+        #header-title {
+            transition: font-size 0.3s ease, margin 0.3s ease, line-height 0.3s ease;
+        }
+        #main-header.is-scrolled #header-title {
+            font-size: 1.25rem;
+            line-height: 1.5rem;
+            margin-bottom: 0;
+        }
+        @media (min-width: 768px) {
+            #main-header.is-scrolled #header-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Meta info (Date, Location) - Hide on scroll to save space */
+        #header-meta {
+            transition: opacity 0.2s ease, height 0.3s ease, margin 0.3s ease, transform 0.3s ease;
+            transform-origin: top;
+        }
+        #main-header.is-scrolled #header-meta {
+            opacity: 0;
+            height: 0;
+            margin: 0;
+            overflow: hidden;
+            transform: scaleY(0);
+        }
+
+        /* Bird Logo Shrinking */
+        #bird-logo-img {
+            transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        #main-header.is-scrolled #bird-logo-img {
+            height: 2.5rem; /* ~40px */
+        }
+        @media (min-width: 768px) {
+            #main-header.is-scrolled #bird-logo-img {
+                height: 3.5rem; /* ~56px */
+            }
+        }
+
+        /* Partner Logos Container Transition: Hides on scroll */
+        #partner-logos-container {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            /* Max dimensions to allow smooth transition from auto */
+            max-height: 200px; 
+            max-width: 500px;
+            opacity: 1;
+        }
+
+        #main-header.is-scrolled #partner-logos-container {
+            opacity: 0;
+            max-height: 0;
+            max-width: 0;
+            margin: 0;
+            padding: 0;
+            border-width: 0;
+            pointer-events: none;
+        }
+
+        /* Remove glow on scroll to keep it clean */
+        #header-glow-1, #header-glow-2 {
+            transition: opacity 0.5s ease;
+        }
+        #main-header.is-scrolled #header-glow-1, 
+        #main-header.is-scrolled #header-glow-2 {
+            opacity: 0;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-slate-50 text-slate-800 antialiased smooth-scroll">
 
+    <!-- Conference Banner / Hero Section -->
+    <!-- Added id="main-header" and fixed positioning classes -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50 bg-slate-900 text-white overflow-hidden border-b border-slate-700 py-10 md:py-14">
+        <!-- Decorative subtle background glow -->
+        <div id="header-glow-1" class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 pointer-events-none"></div>
+        <div id="header-glow-2" class="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 pointer-events-none"></div>
 
-<h1>Asian Winter School – Schedule</h1>
+        <div class="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
+            <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-4 md:gap-12 w-full transition-all duration-300">
+                
+                <!-- Text Content Section -->
+                <div class="flex-1 text-center md:text-left z-10 flex flex-col justify-center">
+                    <h1 id="header-title" class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight mb-4 transition-all origin-left">
+                        20th Asian Winter School <br class="hidden md:inline">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 to-cyan-300">
+                            on Strings, Particles and Cosmology
+                        </span>
+                    </h1>
+                    
+                    <!-- Wrapper for meta info that needs to collapse -->
+                    <div id="header-meta">
+                        <div class="flex flex-col md:flex-row items-center md:items-start gap-4 text-slate-300 font-medium text-base md:text-lg mb-8">
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="map-pin" class="w-5 h-5 text-indigo-400"></i> IISER Bhopal, India
+                            </div>
+                            <span class="hidden md:block text-slate-600">•</span>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="calendar" class="w-5 h-5 text-indigo-400"></i> 11–20 January 2026
+                            </div>
+                        </div>
 
+                        <div class="flex flex-col md:flex-row items-center md:items-start gap-3 text-sm text-slate-400">
+                            <span class="uppercase tracking-widest text-xs font-bold text-slate-500 mt-1">Supported By</span>
+                            <a href="https://www.murtytrust.org/" target="_blank" class="hover:text-white transition-colors underline decoration-indigo-500/50">The Murty Trust</a>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Right Side: Visuals & Logos -->
+                <div id="header-logos" class="flex flex-row md:flex-col items-center gap-4 md:gap-6 z-10 transition-all duration-300">
+                    <!-- Main Bird Image -->
+                    <div class="relative group">
+                        <div id="bird-glow" class="absolute inset-0 bg-indigo-500 blur-[30px] opacity-20 group-hover:opacity-30 transition-opacity rounded-full"></div>
+                        <a href="https://en.wikipedia.org/wiki/Indian_roller" target="_blank" title="Indian Roller – a colorful bird commonly seen at IISER Bhopal during winter">
+                            <img id="bird-logo-img" src="AWS bird.png" alt="Indian Roller" class="relative z-10 h-32 md:h-40 w-auto object-contain drop-shadow-xl hover:scale-105 transition-transform duration-300 ease-out">
+                        </a>
+                    </div>
 
-<!-- ===================================================================== -->
-<!-- DESKTOP TABLE -->
-<!-- ===================================================================== -->
+                    <!-- Partner Logos Container -->
+                    <div id="partner-logos-container" class="flex items-center gap-4 md:gap-6 bg-white/5 backdrop-blur-sm rounded-lg px-3 py-2 md:px-4 md:py-3 border border-white/10 transition-all">
+                        <a href="https://www.iiserb.ac.in/" target="_blank" title="IISER Bhopal">
+                            <img src="iiserblogo.png" alt="IISER Bhopal" class="partner-logo h-8 md:h-10 w-auto object-contain brightness-0 invert opacity-80 hover:opacity-100 transition-opacity">
+                        </a>
+                        <div class="h-6 md:h-8 w-px bg-white/20"></div>
+                        <a href="https://www.murtytrust.org/" target="_blank" title="Murty Trust">
+                            <img src="MurtyTrust_logo.svg" alt="Murty Trust" class="partner-logo h-8 md:h-10 w-auto object-contain brightness-0 invert opacity-80 hover:opacity-100 transition-opacity">
+                        </a>
+                    </div>
+                </div>
 
-<table class="schedule-table">
+            </div>
+        </div>
+    </header>
 
-<tr>
-  <th>Day / Time</th>
-  <th>09:30–11:00</th>
-  <th class="break teabreak">11:00–11:30</th>
-  <th>11:30–13:00</th>
-  <th class="break lunchbreak">13:00–14:30</th>
-  <th>14:30–16:00</th>
-  <th class="break teabreak">16:00–16:30</th>
-  <th>16:30–18:00</th>
-  <th>Evening</th>
-</tr>
+    <!-- Content Spacer is handled via JS to ensure body has enough padding-top -->
 
-<tr>
-  <th>Sun 11</th>
-  <td class="enrico">Enrico <br><span class="lec">Lec-1</span></td>
-  <td class="teabreak break" rowspan="8">☕🍪Tea Break☕🍪&nbsp&nbsp&nbsp&nbsp&nbsp ☕🍪Tea Break☕🍪</td>
-  <td class="shruti">Shruti <br><span class="lec">Lec-1</span></td>
-  <td class="lunchbreak break" rowspan="10"> 🍛🍽️🥘 Lunch 🍛🍽️🥘 &nbsp&nbsp&nbsp&nbsp&nbsp 🍛🍽️🥘 Lunch 🍛🍽️🥘</td>
-  <td class="yiming">Yiming <br><span class="lec">Lec-1</span></td>
-  <td class="teabreak break" rowspan="4">☕🍪Tea Break☕🍪</td>
-  <td class="enrico">Enrico <br><span class="lec">Lec-2</span></td>
-  <td class="colloq">Amol’s <br>Colloquium</td>
-</tr>
+    <!-- Announcement Banner -->
+    <div class="bg-indigo-600 text-white px-4 py-3 text-center text-sm font-medium shadow-sm relative z-40">
+        <p>📢 Inaugural session starts at <strong>9:00 AM on 11th January</strong>. Please be seated by 8:45 AM.</p>
+    </div>
 
-<tr>
-  <th>Mon 12</th>
-  <td class="shiraz">Shiraz <br><span class="lec">Lec-1</span></td>
-  <td class="shruti">Shruti <br><span class="lec">Lec-2</span></td>
-  <td class="enrico">Enrico <br><span class="lec">Lec-3</span></td>
-  <td class="yiming">Yiming <br><span class="lec">Lec-2</span></td>
-  <td></td>
-</tr>
+    <main class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
-<tr>
-  <th>Tue 13</th>
-  <td class="shiraz">Shiraz <br><span class="lec">Lec-2</span></td>
-  <td class="shruti">Shruti <br><span class="lec">Lec-3</span></td>
-  <td class="enrico">Enrico <br><span class="lec">Lec-4</span></td>
-  <td class="yiming">Yiming <br><span class="lec">Lec-3</span></td>
-  <td class="colloq">Shiraz's Public Lecture</td>
-</tr>
+        <!-- ========================== -->
+        <!-- DESKTOP VIEW (Table)       -->
+        <!-- ========================== -->
+        <div class="desktop-view overflow-x-auto bg-white rounded-xl shadow-sm border border-slate-200 mb-12">
+            <table class="w-full text-sm border-separate border-spacing-0 schedule-grid">
+                <thead>
+                    <tr class="bg-slate-100 text-slate-600 uppercase text-xs tracking-wider font-bold">
+                        <th class="p-4 border-b border-r border-slate-200 bg-slate-100 min-w-[100px] text-center">Date</th>
+                        <th class="p-4 border-b border-slate-200 min-w-[140px]">09:30 – 11:00</th>
+                        <th class="p-2 border-b border-slate-200 w-[50px] bg-slate-200 text-center">11:00</th>
+                        <th class="p-4 border-b border-slate-200 min-w-[140px]">11:30 – 13:00</th>
+                        <th class="p-2 border-b border-slate-200 w-[60px] bg-amber-100 text-center">13:00</th>
+                        <th class="p-4 border-b border-slate-200 min-w-[140px]">14:30 – 16:00</th>
+                        <th class="p-2 border-b border-slate-200 w-[50px] bg-slate-200 text-center">16:00</th>
+                        <th class="p-4 border-b border-slate-200 min-w-[140px]">16:30 – 18:00</th>
+                        <th class="p-4 border-b border-slate-200 min-w-[140px]">Evening</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
 
-<tr>
-  <th>Wed 14</th>
-  <td class="shiraz">Shiraz <br><span class="lec">Lec-3</span></td>
-  <td class="shruti">Shruti <br><span class="lec">Lec-4</span></td>
-  <td class="simon">Simon <br><span class="lec">Lec-1</span></td>
-  <td class="yiming">Yiming <br><span class="lec">Lec-4</span></td>
-  <td></td>
-</tr>
+                    <!-- Sunday 11 -->
+                    <tr>
+                        <th class="p-4 border-r border-b border-slate-200 bg-slate-50 font-bold text-slate-700">
+                            <span class="block text-lg">11</span>
+                            <span class="uppercase text-xs text-slate-400">Sun</span>
+                        </th>
+                        <td class="p-2 border-b border-slate-200">
+                            <div class="lecture-card relative group rounded-lg bg-enrico text-enrico-text p-3 font-semibold shadow-sm overflow-hidden h-full min-h-[70px] flex items-center justify-center">
+                                <div class="speaker-info">
+                                    Enrico<div class="text-xs font-normal opacity-75 mt-1">Lecture 1</div>
+                                </div>
+                                <div class="topic-overlay absolute inset-0 flex items-center justify-center p-2 text-center bg-white/90 backdrop-blur-sm text-slate-800">
+                                    <span class="text-[10px] leading-tight font-bold">An Open System Approach to Cosmology</span>
+                                </div>
+                            </div>
+                        </td>
+                        
+                        <!-- Tea Break Column (Rowspan 8) -->
+                        <td rowspan="8" class="border-b border-r border-l border-slate-200 bg-slate-100 vertical-text text-center text-xs text-slate-400 font-medium hover:bg-slate-200 transition-colors cursor-default select-none py-4">
+                            ☕ Tea Break
+                        </td>
 
-<tr>
-  <th>Thu 15</th>
-  <td class="shiraz">Shiraz <br><span class="lec">Lec-4</span></td>
-  <td class="simon">Simon <br><span class="lec">Lec-2</span></td>
-  <td class="trip" colspan="4">Trip to Sanchi</td>
-</tr>
+                        <td class="p-2 border-b border-slate-200">
+                            <div class="lecture-card relative group rounded-lg bg-shruti text-shruti-text p-3 font-semibold shadow-sm overflow-hidden h-full min-h-[70px] flex items-center justify-center">
+                                <div class="speaker-info">
+                                    Shruti<div class="text-xs font-normal opacity-75 mt-1">Lecture 1</div>
+                                </div>
+                                <div class="topic-overlay absolute inset-0 flex items-center justify-center p-2 text-center bg-white/90 backdrop-blur-sm text-slate-800">
+                                    <span class="text-[10px] leading-tight font-bold">Constructing Scattering Amplitudes</span>
+                                </div>
+                            </div>
+                        </td>
+                        
+                        <!-- Lunch Break Column (Rowspan 10) -->
+                        <td rowspan="10" class="border-b border-r border-l border-slate-200 bg-amber-50 vertical-text text-center text-xs text-amber-600 font-medium hover:bg-amber-100 transition-colors cursor-default select-none py-4">
+                            🍛 Lunch Break
+                        </td>
 
-<tr>
-  <th>Fri 16</th>
-  <td class="simon">Simon <br><span class="lec">Lec-3</span></td>
-  <td class="shota">Shota <br><span class="lec">Lec-1</span></td>
-  <td class="renato">Renato <br><span class="lec">Lec-1</span></td>
-  <td class="teabreak break" rowspan="4">☕🍪 Tea Break ☕🍪 </td>
-  <td class="colloq">Anindya’s <br>Colloquium</td>
-  <td></td>
-</tr>
+                        <td class="p-2 border-b border-slate-200">
+                            <div class="lecture-card relative group rounded-lg bg-yiming text-yiming-text p-3 font-semibold shadow-sm overflow-hidden h-full min-h-[70px] flex items-center justify-center">
+                                <div class="speaker-info">
+                                    Yiming<div class="text-xs font-normal opacity-75 mt-1">Lecture 1</div>
+                                </div>
+                                <div class="topic-overlay absolute inset-0 flex items-center justify-center p-2 text-center bg-white/90 backdrop-blur-sm text-slate-800">
+                                    <span class="text-[10px] leading-tight font-bold">Black Holes and Chaos</span>
+                                </div>
+                            </div>
+                        </td>
+                        
+                        <!-- Tea Break PM (Rowspan 4) -->
+                        <td rowspan="4" class="border-b border-r border-l border-slate-200 bg-slate-100 vertical-text text-center text-xs text-slate-400 font-medium hover:bg-slate-200 transition-colors cursor-default select-none py-4">
+                            ☕ Tea Break
+                        </td>
 
-<tr>
-  <th>Sat 17</th>
-  <td class="colloq">Cristhian's <br>Colloquium <br>(online)</td>
-  <td class="simon">Simon <br><span class="lec">Lec-4</span></td>
-  <td class="shota">Shota <br><span class="lec">Lec-2</span></td>
-  <td class="julio">Julio <br><span class="lec">Lec-1</span></td>
-  <td></td>
-</tr>
+                        <td class="p-2 border-b border-slate-200">
+                            <div class="lecture-card relative group rounded-lg bg-enrico text-enrico-text p-3 font-semibold shadow-sm overflow-hidden h-full min-h-[70px] flex items-center justify-center">
+                                <div class="speaker-info">
+                                    Enrico<div class="text-xs font-normal opacity-75 mt-1">Lecture 2</div>
+                                </div>
+                                <div class="topic-overlay absolute inset-0 flex items-center justify-center p-2 text-center bg-white/90 backdrop-blur-sm text-slate-800">
+                                    <span class="text-[10px] leading-tight font-bold">An Open System Approach to Cosmology</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-2 border-b border-slate-200">
+                            <div class="lecture-card relative group rounded-lg bg-colloq text-colloq-text p-3 font-semibold shadow-sm overflow-hidden h-full min-h-[70px] flex items-center justify-center">
+                                <div class="speaker-info">
+                                    Amol<div class="text-xs font-normal opacity-75 mt-1">Colloquium</div>
+                                </div>
+                                <div class="topic-overlay absolute inset-0 flex items-center justify-center p-2 text-center bg-white/90 backdrop-blur-sm text-slate-800">
+                                    <span class="text-[10px] leading-tight font-bold">What's the Deal With Neutrinos?</span>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
 
-<tr>
-  <th>Sun 18</th>
-  <td class="shota">Shota <br><span class="lec">Lec-3</span></td>
-  <td class="julio">Julio <br><span class="lec">Lec-2</span></td>
-  <td class="renato">Renato <br><span class="lec">Lec-2</span></td>
-  <td class="shota">Shota <br><span class="lec">Lec-4</span></td>
-  <td class="colloq">Ashoke’s <br>Colloquium</td>
-</tr>
+                    <!-- Mon 12 -->
+                    <tr>
+                        <th class="p-4 border-r border-b border-slate-200 bg-slate-50 font-bold text-slate-700">
+                            <span class="block text-lg">12</span>
+                            <span class="uppercase text-xs text-slate-400">Mon</span>
+                        </th>
+                        <td class="p-2 border-b border-slate-200">
+                            <div class="lecture-card relative group rounded-lg bg-shiraz text-shiraz-text p-3 font-semibold shadow-sm overflow-hidden h-full min-h-[70px] flex items-center justify-center">
+                                <div class="speaker-info">
+                                    Shiraz<div class="text-xs font-normal opacity-75 mt-1">Lecture 1</div>
+                                </div>
+                                <div class="topic-overlay absolute inset-0 flex items-center justify-center p-2 text-center bg-white/90 backdrop-blur-sm text-slate-800">
+                                    <span class="text-[10px] leading-tight font-bold">CFT Entropy at High Energies</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-2 border-b border-slate-200">
+                            <div class="lecture-card relative group rounded-lg bg-shruti text-shruti-text p-3 font-semibold shadow-sm overflow-hidden h-full min-h-[70px] flex items-center justify-center">
+                                <div class="speaker-info">
+                                    Shruti<div class="text-xs font-normal opacity-75 mt-1">Lecture 2</div>
+                                </div>
+                                <div class="topic-overlay absolute inset-0 flex items-center justify-center p-2 text-center bg-white/90 backdrop-blur-sm text-slate-800">
+                                    <span class="text-[10px] leading-tight font-bold">Constructing Scattering Amplitudes</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-2 border-b border-slate-200">
+                            <div class="lecture-card relative group rounded-lg bg-enrico text-enrico-text p-3 font-semibold shadow-sm overflow-hidden h-full min-h-[70px] flex items-center justify-center">
+                                <div class="speaker-info">
+                                    Enrico<div class="text-xs font-normal opacity-75 mt-1">Lecture 3</div>
+                                </div>
+                                <div class="topic-overlay absolute inset-0 flex items-center justify-center p-2 text-center bg-white/90 backdrop-blur-sm text-slate-800">
+                                    <span class="text-[10px] leading-tight font-bold">An Open System Approach to Cosmology</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-2 border-b border-slate-200">
+                            <div class="lecture-card relative group rounded-lg bg-yiming text-yiming-text p-3 font-semibold shadow-sm overflow-hidden h-full min-h-[70px] flex items-center justify-center">
+                                <div class="speaker-info">
+                                    Yiming<div class="text-xs font-normal opacity-75 mt-1">Lecture 2</div>
+                                </div>
+                                <div class="topic-overlay absolute inset-0 flex items-center justify-center p-2 text-center bg-white/90 backdrop-blur-sm text-slate-800">
+                                    <span class="text-[10px] leading-tight font-bold">Black Holes and Chaos</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-2 border-b border-slate-200"></td>
+                    </tr>
 
-<tr>
-  <th>Mon 19</th>
-  <td class="colloq" colspan="3">Ashoke's Public Lecture at RCS</td>
-  <td class="renato">Renato <br><span class="lec">Lec-3</span></td>
-  <td class="julio">Julio <br><span class="lec">Lec-3</span></td>
-  <td></td>
-</tr>
+                    <!-- Tue 13 -->
+                    <tr>
+                        <th class="p-4 border-r border-b border-slate-200 bg-slate-50 font-bold text-slate-700">
+                            <span class="block text-lg">13</span>
+                            <span class="uppercase text-xs text-slate-400">Tue</span>
+                        </th>
+                        <td class="p-2 border-b border-slate-200">
+                            <div class="lecture-card relative group rounded-lg bg-shiraz text-shiraz-text p-3 font-semibold shadow-sm overflow-hidden h-full min-h-[70px] flex items-center justify-center">
+                                <div class="speaker-info">
+                                    Shiraz<div class="text-xs font-normal opacity-75 mt-1">Lecture 2</div>
+                                </div>
+                                <div class="topic-overlay absolute inset-0 flex items-center justify-center p-2 text-center bg-white/90 backdrop-blur-sm text-slate-800">
+                                    <span class="text-[10px] leading-tight font-bold">CFT Entropy at High Energies</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-2 border-b border-slate-200">
+                            <div class="lecture-card relative group rounded-lg bg-shruti text-shruti-text p-3 font-semibold shadow-sm overflow-hidden h-full min-h-[70px] flex items-center justify-center">
+                                <div class="speaker-info">
+                                    Shruti<div class="text-xs font-normal opacity-75 mt-1">Lecture 3</div>
+                                </div>
+                                <div class="topic-overlay absolute inset-0 flex items-center justify-center p-2 text-center bg-white/90 backdrop-blur-sm text-slate-800">
+                                    <span class="text-[10px] leading-tight font-bold">Constructing Scattering Amplitudes</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-2 border-b border-slate-200">
+                            <div class="lecture-card relative group rounded-lg bg-enrico text-enrico-text p-3 font-semibold shadow-sm overflow-hidden h-full min-h-[70px] flex items-center justify-center">
+                                <div class="speaker-info">
+                                    Enrico<div class="text-xs font-normal opacity-75 mt-1">Lecture 4</div>
+                                </div>
+                                <div class="topic-overlay absolute inset-0 flex items-center justify-center p-2 text-center bg-white/90 backdrop-blur-sm text-slate-800">
+                                    <span class="text-[10px] leading-tight font-bold">An Open System Approach to Cosmology</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-2 border-b border-slate-200">
+                            <div class="lecture-card relative group rounded-lg bg-yiming text-yiming-text p-3 font-semibold shadow-sm overflow-hidden h-full min-h-[70px] flex items-center justify-center">
+                                <div class="speaker-info">
+                                    Yiming<div class="text-xs font-normal opacity-75 mt-1">Lecture 3</div>
+                                </div>
+                                <div class="topic-overlay absolute inset-0 flex items-center justify-center p-2 text-center bg-white/90 backdrop-blur-sm text-slate-800">
+                                    <span class="text-[10px] leading-tight font-bold">Black Holes and Chaos</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-2 border-b border-slate-200">
+                            <div class="lecture-card relative group rounded-lg bg-slate-800 text-white p-3 font-semibold shadow-sm overflow-hidden h-full min-h-[70px] flex items-center justify-center">
+                                <div class="speaker-info flex flex-col items-center">
+                                    <span class="text-base">Shiraz</span>
+                                    <div class="text-[10px] font-normal opacity-75 mt-1">Public Lecture</div>
+                                    <div class="text-[10px] font-normal opacity-75 mt-1 flex items-center gap-1"><i data-lucide="clock" class="w-3 h-3"></i> 6:30 PM</div>
+                                </div>
+                                <div class="topic-overlay absolute inset-0 flex flex-col items-center justify-center p-2 text-center bg-slate-900/95 backdrop-blur-sm text-white">
+                                    <span class="text-[10px] font-bold leading-tight">"Search for Quantum Gravity's work"</span>
+                                    <span class="text-[10px] font-normal mt-1 flex items-center gap-1"><i data-lucide="map-pin" class="w-3 h-3"></i> IISER Bhopal</span>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
 
-<tr>
-  <th>Tue 20</th>
-  <td class="julio">Julio <br><span class="lec">Lec-4</span></td>
-  <td class="teabreak break">☕🍪</td>
-  <td class="renato">Renato <br><span class="lec">Lec-4</span></td>
-  <td colspan="4">Free afternoon</td>
-</tr>
+                    <!-- Wed 14 -->
+                    <tr>
+                        <th class="p-4 border-r border-b border-slate-200 bg-slate-50 font-bold text-slate-700">
+                            <span class="block text-lg">14</span>
+                            <span class="uppercase text-xs text-slate-400">Wed</span>
+                        </th>
+                        <td class="p-2 border-b border-slate-200">
+                            <div class="lecture-card relative group rounded-lg bg-shiraz text-shiraz-text p-3 font-semibold shadow-sm overflow-hidden h-full min-h-[70px] flex items-center justify-center">
+                                <div class="speaker-info">
+                                    Shiraz<div class="text-xs font-normal opacity-75 mt-1">Lecture 3</div>
+                                </div>
+                                <div class="topic-overlay absolute inset-0 flex items-center justify-center p-2 text-center bg-white/90 backdrop-blur-sm text-slate-800">
+                                    <span class="text-[10px] leading-tight font-bold">CFT Entropy at High Energies</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-2 border-b border-slate-200">
+                            <div class="lecture-card relative group rounded-lg bg-shruti text-shruti-text p-3 font-semibold shadow-sm overflow-hidden h-full min-h-[70px] flex items-center justify-center">
+                                <div class="speaker-info">
+                                    Shruti<div class="text-xs font-normal opacity-75 mt-1">Lecture 4</div>
+                                </div>
+                                <div class="topic-overlay absolute inset-0 flex items-center justify-center p-2 text-center bg-white/90 backdrop-blur-sm text-slate-800">
+                                    <span class="text-[10px] leading-tight font-bold">Constructing Scattering Amplitudes</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-2 border-b border-slate-200">
+                            <div class="lecture-card relative group rounded-lg bg-simon text-simon-text p-3 font-semibold shadow-sm overflow-hidden h-full min-h-[70px] flex items-center justify-center">
+                                <div class="speaker-info">
+                                    Simon<div class="text-xs font-normal opacity-75 mt-1">Lecture 1</div>
+                                </div>
+                                <div class="topic-overlay absolute inset-0 flex items-center justify-center p-2 text-center bg-white/90 backdrop-blur-sm text-slate-800">
+                                    <span class="text-[10px] leading-tight font-bold">Causality Constraints</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-2 border-b border-slate-200">
+                            <div class="lecture-card relative group rounded-lg bg-yiming text-yiming-text p-3 font-semibold shadow-sm overflow-hidden h-full min-h-[70px] flex items-center justify-center">
+                                <div class="speaker-info">
+                                    Yiming<div class="text-xs font-normal opacity-75 mt-1">Lecture 4</div>
+                                </div>
+                                <div class="topic-overlay absolute inset-0 flex items-center justify-center p-2 text-center bg-white/90 backdrop-blur-sm text-slate-800">
+                                    <span class="text-[10px] leading-tight font-bold">Black Holes and Chaos</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-2 border-b border-slate-200"></td>
+                    </tr>
 
-</table>
+                    <!-- Thu 15 -->
+                    <tr>
+                        <th class="p-4 border-r border-b border-slate-200 bg-slate-50 font-bold text-slate-700">
+                            <span class="block text-lg">15</span>
+                            <span class="uppercase text-xs text-slate-400">Thu</span>
+                        </th>
+                        <td class="p-2 border-b border-slate-200">
+                            <div class="lecture-card relative group rounded-lg bg-shiraz text-shiraz-text p-3 font-semibold shadow-sm overflow-hidden h-full min-h-[70px] flex items-center justify-center">
+                                <div class="speaker-info">
+                                    Shiraz<div class="text-xs font-normal opacity-75 mt-1">Lecture 4</div>
+                                </div>
+                                <div class="topic-overlay absolute inset-0 flex items-center justify-center p-2 text-center bg-white/90 backdrop-blur-sm text-slate-800">
+                                    <span class="text-[10px] leading-tight font-bold">CFT Entropy at High Energies</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-2 border-b border-slate-200">
+                            <div class="lecture-card relative group rounded-lg bg-simon text-simon-text p-3 font-semibold shadow-sm overflow-hidden h-full min-h-[70px] flex items-center justify-center">
+                                <div class="speaker-info">
+                                    Simon<div class="text-xs font-normal opacity-75 mt-1">Lecture 2</div>
+                                </div>
+                                <div class="topic-overlay absolute inset-0 flex items-center justify-center p-2 text-center bg-white/90 backdrop-blur-sm text-slate-800">
+                                    <span class="text-[10px] leading-tight font-bold">Causality Constraints</span>
+                                </div>
+                            </div>
+                        </td>
+                        <!-- Trip to Sanchi -->
+                        <td colspan="4" class="p-2 border-b border-slate-200">
+                            <div class="relative overflow-hidden rounded-lg shadow-md h-full min-h-[100px] flex items-center justify-center group">
+                                <!-- Background Image -->
+                                <div class="absolute inset-0 bg-[url('https://aws2025.com/Sanchi_stupa.png')] bg-cover bg-center"></div>
+                                <!-- Overlay -->
+                                <div class="absolute inset-0 bg-black/60 group-hover:bg-black/50 transition-colors"></div>
+                                <!-- Content -->
+                                <div class="relative z-10 text-white flex flex-col items-center justify-center gap-2 p-4">
+                                    <div class="flex items-center gap-3">
+                                        <i data-lucide="bus" class="w-8 h-8 text-teal-300"></i>
+                                        <span class="text-2xl font-bold tracking-wide text-shadow-sm">Trip to Sanchi</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="bg-slate-50 border-b border-slate-200"></td> <!-- Break column compensation -->
+                        <td class="border-b border-slate-200"></td>
+                    </tr>
 
-<p>##There will be an inaugural session first from 9am on 11th January</p>
+                    <!-- Fri 16 -->
+                    <tr>
+                        <th class="p-4 border-r border-b border-slate-200 bg-slate-50 font-bold text-slate-700">
+                            <span class="block text-lg">16</span>
+                            <span class="uppercase text-xs text-slate-400">Fri</span>
+                        </th>
+                        <td class="p-2 border-b border-slate-200">
+                            <div class="lecture-card relative group rounded-lg bg-simon text-simon-text p-3 font-semibold shadow-sm overflow-hidden h-full min-h-[70px] flex items-center justify-center">
+                                <div class="speaker-info">
+                                    Simon<div class="text-xs font-normal opacity-75 mt-1">Lecture 3</div>
+                                </div>
+                                <div class="topic-overlay absolute inset-0 flex items-center justify-center p-2 text-center bg-white/90 backdrop-blur-sm text-slate-800">
+                                    <span class="text-[10px] leading-tight font-bold">Causality Constraints</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-2 border-b border-slate-200">
+                            <div class="lecture-card relative group rounded-lg bg-shota text-shota-text p-3 font-semibold shadow-sm overflow-hidden h-full min-h-[70px] flex items-center justify-center">
+                                <div class="speaker-info">
+                                    Shota<div class="text-xs font-normal opacity-75 mt-1">Lecture 1</div>
+                                </div>
+                                <div class="topic-overlay absolute inset-0 flex items-center justify-center p-2 text-center bg-white/90 backdrop-blur-sm text-slate-800">
+                                    <span class="text-[10px] leading-tight font-bold">Matrix Models and Holography</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-2 border-b border-slate-200">
+                            <div class="lecture-card relative group rounded-lg bg-renato text-renato-text p-3 font-semibold shadow-sm overflow-hidden h-full min-h-[70px] flex items-center justify-center">
+                                <div class="speaker-info">
+                                    Renato<div class="text-xs font-normal opacity-75 mt-1">Lecture 1</div>
+                                </div>
+                                <div class="topic-overlay absolute inset-0 flex items-center justify-center p-2 text-center bg-white/90 backdrop-blur-sm text-slate-800">
+                                    <span class="text-[10px] leading-tight font-bold">Black Hole Information</span>
+                                </div>
+                            </div>
+                        </td>
+                        
+                        <!-- Tea Break PM (Rowspan 4) -->
+                        <td rowspan="4" class="border-b border-r border-l border-slate-200 bg-slate-100 vertical-text text-center text-xs text-slate-400 font-medium hover:bg-slate-200 transition-colors cursor-default select-none py-4">
+                            ☕ Tea Break
+                        </td>
 
+                        <td class="p-2 border-b border-slate-200">
+                            <div class="lecture-card relative group rounded-lg bg-colloq text-colloq-text p-3 font-semibold shadow-sm overflow-hidden h-full min-h-[70px] flex items-center justify-center">
+                                <div class="speaker-info">
+                                    Aninda<div class="text-xs font-normal opacity-75 mt-1">Colloquium</div>
+                                </div>
+                                <div class="topic-overlay absolute inset-0 flex items-center justify-center p-2 text-center bg-white/90 backdrop-blur-sm text-slate-800">
+                                    <span class="text-[10px] leading-tight font-bold">The Usefulness of Useless String Theory</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-2 border-b border-slate-200"></td>
+                    </tr>
+
+                    <!-- Sat 17 -->
+                    <tr>
+                        <th class="p-4 border-r border-b border-slate-200 bg-slate-50 font-bold text-slate-700">
+                            <span class="block text-lg">17</span>
+                            <span class="uppercase text-xs text-slate-400">Sat</span>
+                        </th>
+                        <td class="p-2 border-b border-slate-200">
+                            <div class="lecture-card relative group rounded-lg bg-colloq text-colloq-text p-3 font-semibold shadow-sm overflow-hidden h-full min-h-[70px] flex items-center justify-center">
+                                <div class="speaker-info">
+                                    Cristhian<div class="text-xs font-normal opacity-75 mt-1">Colloquium</div>
+                                </div>
+                                <div class="topic-overlay absolute inset-0 flex items-center justify-center p-2 text-center bg-white/90 backdrop-blur-sm text-slate-800">
+                                    <span class="text-[10px] leading-tight font-bold">Interpreting the Latest Cosmological Data<br><span class="font-normal italic mt-1 block">(Online)</span></span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-2 border-b border-slate-200">
+                            <div class="lecture-card relative group rounded-lg bg-simon text-simon-text p-3 font-semibold shadow-sm overflow-hidden h-full min-h-[70px] flex items-center justify-center">
+                                <div class="speaker-info">
+                                    Simon<div class="text-xs font-normal opacity-75 mt-1">Lecture 4</div>
+                                </div>
+                                <div class="topic-overlay absolute inset-0 flex items-center justify-center p-2 text-center bg-white/90 backdrop-blur-sm text-slate-800">
+                                    <span class="text-[10px] leading-tight font-bold">Causality Constraints</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-2 border-b border-slate-200">
+                            <div class="lecture-card relative group rounded-lg bg-shota text-shota-text p-3 font-semibold shadow-sm overflow-hidden h-full min-h-[70px] flex items-center justify-center">
+                                <div class="speaker-info">
+                                    Shota<div class="text-xs font-normal opacity-75 mt-1">Lecture 2</div>
+                                </div>
+                                <div class="topic-overlay absolute inset-0 flex items-center justify-center p-2 text-center bg-white/90 backdrop-blur-sm text-slate-800">
+                                    <span class="text-[10px] leading-tight font-bold">Matrix Models and Holography</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-2 border-b border-slate-200">
+                            <div class="lecture-card relative group rounded-lg bg-julio text-julio-text p-3 font-semibold shadow-sm overflow-hidden h-full min-h-[70px] flex items-center justify-center">
+                                <div class="speaker-info">
+                                    Julio<div class="text-xs font-normal opacity-75 mt-1">Lecture 1</div>
+                                </div>
+                                <div class="topic-overlay absolute inset-0 flex items-center justify-center p-2 text-center bg-white/90 backdrop-blur-sm text-slate-800">
+                                    <span class="text-[10px] leading-tight font-bold">Scattering Amplitudes & EFT</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-2 border-b border-slate-200"></td>
+                    </tr>
+
+                    <!-- Sun 18 -->
+                    <tr>
+                        <th class="p-4 border-r border-b border-slate-200 bg-slate-50 font-bold text-slate-700">
+                            <span class="block text-lg">18</span>
+                            <span class="uppercase text-xs text-slate-400">Sun</span>
+                        </th>
+                        <td class="p-2 border-b border-slate-200">
+                            <div class="lecture-card relative group rounded-lg bg-shota text-shota-text p-3 font-semibold shadow-sm overflow-hidden h-full min-h-[70px] flex items-center justify-center">
+                                <div class="speaker-info">
+                                    Shota<div class="text-xs font-normal opacity-75 mt-1">Lecture 3</div>
+                                </div>
+                                <div class="topic-overlay absolute inset-0 flex items-center justify-center p-2 text-center bg-white/90 backdrop-blur-sm text-slate-800">
+                                    <span class="text-[10px] leading-tight font-bold">Matrix Models and Holography</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-2 border-b border-slate-200">
+                            <div class="lecture-card relative group rounded-lg bg-julio text-julio-text p-3 font-semibold shadow-sm overflow-hidden h-full min-h-[70px] flex items-center justify-center">
+                                <div class="speaker-info">
+                                    Julio<div class="text-xs font-normal opacity-75 mt-1">Lecture 2</div>
+                                </div>
+                                <div class="topic-overlay absolute inset-0 flex items-center justify-center p-2 text-center bg-white/90 backdrop-blur-sm text-slate-800">
+                                    <span class="text-[10px] leading-tight font-bold">Scattering Amplitudes & EFT</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-2 border-b border-slate-200">
+                            <div class="lecture-card relative group rounded-lg bg-renato text-renato-text p-3 font-semibold shadow-sm overflow-hidden h-full min-h-[70px] flex items-center justify-center">
+                                <div class="speaker-info">
+                                    Renato<div class="text-xs font-normal opacity-75 mt-1">Lecture 2</div>
+                                </div>
+                                <div class="topic-overlay absolute inset-0 flex items-center justify-center p-2 text-center bg-white/90 backdrop-blur-sm text-slate-800">
+                                    <span class="text-[10px] leading-tight font-bold">Black Hole Information</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-2 border-b border-slate-200">
+                            <div class="lecture-card relative group rounded-lg bg-shota text-shota-text p-3 font-semibold shadow-sm overflow-hidden h-full min-h-[70px] flex items-center justify-center">
+                                <div class="speaker-info">
+                                    Shota<div class="text-xs font-normal opacity-75 mt-1">Lecture 4</div>
+                                </div>
+                                <div class="topic-overlay absolute inset-0 flex items-center justify-center p-2 text-center bg-white/90 backdrop-blur-sm text-slate-800">
+                                    <span class="text-[10px] leading-tight font-bold">Matrix Models and Holography</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-2 border-b border-slate-200">
+                            <div class="lecture-card relative group rounded-lg bg-colloq text-colloq-text p-3 font-semibold shadow-sm overflow-hidden h-full min-h-[70px] flex items-center justify-center">
+                                <div class="speaker-info">
+                                    Ashoke<div class="text-xs font-normal opacity-75 mt-1">Colloquium</div>
+                                </div>
+                                <div class="topic-overlay absolute inset-0 flex items-center justify-center p-2 text-center bg-white/90 backdrop-blur-sm text-slate-800">
+                                    <span class="text-[10px] leading-tight font-bold">Ashoke Sen</span>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Mon 19 -->
+                    <tr>
+                        <th class="p-4 border-r border-b border-slate-200 bg-slate-50 font-bold text-slate-700">
+                            <span class="block text-lg">19</span>
+                            <span class="uppercase text-xs text-slate-400">Mon</span>
+                        </th>
+                        <!-- Spanning Public Lecture -->
+                        <td colspan="3" class="p-2 border-b border-slate-200 text-center">
+                            <div class="lecture-card relative group rounded-lg bg-slate-800 text-white p-3 font-semibold shadow-sm overflow-hidden h-full min-h-[70px] flex items-center justify-center">
+                                <div class="speaker-info flex flex-col items-center">
+                                    <span class="text-lg">Ashoke Sen</span>
+                                    <div class="text-xs font-normal opacity-75 mt-1">Public Lecture</div>
+                                    <div class="text-xs font-normal opacity-75 mt-1 flex items-center gap-1"><i data-lucide="clock" class="w-3 h-3"></i> 11:00 AM</div>
+                                </div>
+                                <div class="topic-overlay absolute inset-0 flex flex-col items-center justify-center p-4 text-center bg-slate-900/95 backdrop-blur-sm text-white">
+                                    <span class="text-sm font-bold leading-tight">"Search for a unified theory"</span>
+                                    <span class="text-xs font-normal mt-2 flex items-center gap-1"><i data-lucide="map-pin" class="w-3 h-3"></i> Regional Science Center, Bhopal</span>
+                                </div>
+                            </div>
+                        </td>
+                         <!-- Compensation for Lunch Break already handled by span above visually in mental model but physically we need to align cells. -->
+                        <td class="p-2 border-b border-slate-200">
+                            <div class="lecture-card relative group rounded-lg bg-renato text-renato-text p-3 font-semibold shadow-sm overflow-hidden h-full min-h-[70px] flex items-center justify-center">
+                                <div class="speaker-info">
+                                    Renato<div class="text-xs font-normal opacity-75 mt-1">Lecture 3</div>
+                                </div>
+                                <div class="topic-overlay absolute inset-0 flex items-center justify-center p-2 text-center bg-white/90 backdrop-blur-sm text-slate-800">
+                                    <span class="text-[10px] leading-tight font-bold">Black Hole Information</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-2 border-b border-slate-200">
+                            <div class="lecture-card relative group rounded-lg bg-julio text-julio-text p-3 font-semibold shadow-sm overflow-hidden h-full min-h-[70px] flex items-center justify-center">
+                                <div class="speaker-info">
+                                    Julio<div class="text-xs font-normal opacity-75 mt-1">Lecture 3</div>
+                                </div>
+                                <div class="topic-overlay absolute inset-0 flex items-center justify-center p-2 text-center bg-white/90 backdrop-blur-sm text-slate-800">
+                                    <span class="text-[10px] leading-tight font-bold">Scattering Amplitudes & EFT</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="p-2 border-b border-slate-200"></td>
+                    </tr>
+
+                    <!-- Tue 20 -->
+                    <tr>
+                        <th class="p-4 border-r border-b border-slate-200 bg-slate-50 font-bold text-slate-700">
+                            <span class="block text-lg">20</span>
+                            <span class="uppercase text-xs text-slate-400">Tue</span>
+                        </th>
+                        <td class="p-2 border-b border-slate-200">
+                            <div class="lecture-card relative group rounded-lg bg-julio text-julio-text p-3 font-semibold shadow-sm overflow-hidden h-full min-h-[70px] flex items-center justify-center">
+                                <div class="speaker-info">
+                                    Julio<div class="text-xs font-normal opacity-75 mt-1">Lecture 4</div>
+                                </div>
+                                <div class="topic-overlay absolute inset-0 flex items-center justify-center p-2 text-center bg-white/90 backdrop-blur-sm text-slate-800">
+                                    <span class="text-[10px] leading-tight font-bold">Scattering Amplitudes & EFT</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="border-b border-slate-200 bg-slate-100 text-center text-xs text-slate-400">☕</td>
+                        <td class="p-2 border-b border-slate-200">
+                            <div class="lecture-card relative group rounded-lg bg-renato text-renato-text p-3 font-semibold shadow-sm overflow-hidden h-full min-h-[70px] flex items-center justify-center">
+                                <div class="speaker-info">
+                                    Renato<div class="text-xs font-normal opacity-75 mt-1">Lecture 4</div>
+                                </div>
+                                <div class="topic-overlay absolute inset-0 flex items-center justify-center p-2 text-center bg-white/90 backdrop-blur-sm text-slate-800">
+                                    <span class="text-[10px] leading-tight font-bold">Black Hole Information</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td colspan="4" class="p-2 border-b border-slate-200">
+                            <div class="bg-gray-100 text-gray-500 border border-dashed border-gray-300 p-3 rounded-lg text-center font-medium">
+                                Free Afternoon
+                            </div>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ========================== -->
+        <!-- MOBILE VIEW (Agenda Cards) -->
+        <!-- ========================== -->
+        <div class="mobile-view space-y-6 mb-12">
+
+            <!-- Card Template Function -->
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                <div class="bg-slate-800 px-4 py-3 flex justify-between items-center text-white">
+                    <span class="font-bold text-lg">Sun 11 Jan</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400"></i>
+                </div>
+                <div class="divide-y divide-slate-100">
+                    <div class="p-4 flex gap-4">
+                        <div class="w-16 text-xs font-bold text-slate-500 pt-1">09:30</div>
+                        <div class="flex-1 bg-enrico/30 border-l-4 border-enrico-text px-3 py-2 rounded-r-md">
+                            <div class="font-bold text-enrico-text">Enrico</div>
+                            <div class="text-xs text-slate-600">Lecture 1</div>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 px-4 py-2 flex items-center justify-center gap-2 text-xs font-medium text-slate-400">
+                        <span>☕ Tea Break</span>
+                    </div>
+                    <div class="p-4 flex gap-4">
+                        <div class="w-16 text-xs font-bold text-slate-500 pt-1">11:30</div>
+                        <div class="flex-1 bg-shruti/30 border-l-4 border-shruti-text px-3 py-2 rounded-r-md">
+                            <div class="font-bold text-shruti-text">Shruti</div>
+                            <div class="text-xs text-slate-600">Lecture 1</div>
+                        </div>
+                    </div>
+                    <div class="bg-amber-50 px-4 py-2 flex items-center justify-center gap-2 text-xs font-medium text-amber-600">
+                        <span>🍛 Lunch</span>
+                    </div>
+                    <div class="p-4 flex gap-4">
+                        <div class="w-16 text-xs font-bold text-slate-500 pt-1">14:30</div>
+                        <div class="flex-1 bg-yiming/30 border-l-4 border-yiming-text px-3 py-2 rounded-r-md">
+                            <div class="font-bold text-yiming-text">Yiming</div>
+                            <div class="text-xs text-slate-600">Lecture 1</div>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 px-4 py-2 flex items-center justify-center gap-2 text-xs font-medium text-slate-400">
+                        <span>☕ Tea Break</span>
+                    </div>
+                    <div class="p-4 flex gap-4">
+                        <div class="w-16 text-xs font-bold text-slate-500 pt-1">16:30</div>
+                        <div class="flex-1 bg-enrico/30 border-l-4 border-enrico-text px-3 py-2 rounded-r-md">
+                            <div class="font-bold text-enrico-text">Enrico</div>
+                            <div class="text-xs text-slate-600">Lecture 2</div>
+                        </div>
+                    </div>
+                    <div class="p-4 flex gap-4">
+                        <div class="w-16 text-xs font-bold text-slate-500 pt-1">Evening</div>
+                        <div class="flex-1 bg-colloq/50 border-l-4 border-colloq-text px-3 py-2 rounded-r-md">
+                            <div class="font-bold text-colloq-text">Amol's Colloquium</div>
+                            <div class="text-xs text-colloq-text/80 mt-1 italic">What's the Deal With Neutrinos?</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mon 12 -->
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                <div class="bg-slate-800 px-4 py-3 text-white"><span class="font-bold text-lg">Mon 12 Jan</span></div>
+                <div class="divide-y divide-slate-100">
+                    <div class="p-4 flex gap-4">
+                        <div class="w-16 text-xs font-bold text-slate-500 pt-1">09:30</div>
+                        <div class="flex-1 bg-shiraz/30 border-l-4 border-shiraz-text px-3 py-2 rounded-r-md">
+                            <div class="font-bold text-shiraz-text">Shiraz</div> <div class="text-xs text-slate-600">Lecture 1</div>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 px-4 py-2 flex items-center justify-center gap-2 text-xs font-medium text-slate-400"><span>☕ Tea Break</span></div>
+                    <div class="p-4 flex gap-4">
+                        <div class="w-16 text-xs font-bold text-slate-500 pt-1">11:30</div>
+                        <div class="flex-1 bg-shruti/30 border-l-4 border-shruti-text px-3 py-2 rounded-r-md">
+                            <div class="font-bold text-shruti-text">Shruti</div> <div class="text-xs text-slate-600">Lecture 2</div>
+                        </div>
+                    </div>
+                    <div class="bg-amber-50 px-4 py-2 flex items-center justify-center gap-2 text-xs font-medium text-amber-600"><span>🍛 Lunch</span></div>
+                    <div class="p-4 flex gap-4">
+                        <div class="w-16 text-xs font-bold text-slate-500 pt-1">14:30</div>
+                        <div class="flex-1 bg-enrico/30 border-l-4 border-enrico-text px-3 py-2 rounded-r-md">
+                            <div class="font-bold text-enrico-text">Enrico</div> <div class="text-xs text-slate-600">Lecture 3</div>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 px-4 py-2 flex items-center justify-center gap-2 text-xs font-medium text-slate-400"><span>☕ Tea Break</span></div>
+                    <div class="p-4 flex gap-4">
+                        <div class="w-16 text-xs font-bold text-slate-500 pt-1">16:30</div>
+                        <div class="flex-1 bg-yiming/30 border-l-4 border-yiming-text px-3 py-2 rounded-r-md">
+                            <div class="font-bold text-yiming-text">Yiming</div> <div class="text-xs text-slate-600">Lecture 2</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tue 13 -->
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                <div class="bg-slate-800 px-4 py-3 text-white"><span class="font-bold text-lg">Tue 13 Jan</span></div>
+                <div class="divide-y divide-slate-100">
+                    <div class="p-4 flex gap-4"><div class="w-16 text-xs font-bold text-slate-500 pt-1">09:30</div><div class="flex-1 bg-shiraz/30 border-l-4 border-shiraz-text px-3 py-2 rounded-r-md"><div class="font-bold text-shiraz-text">Shiraz</div> <div class="text-xs text-slate-600">Lecture 2</div></div></div>
+                    <div class="bg-slate-50 px-4 py-2 flex items-center justify-center gap-2 text-xs font-medium text-slate-400"><span>☕ Tea Break</span></div>
+                    <div class="p-4 flex gap-4"><div class="w-16 text-xs font-bold text-slate-500 pt-1">11:30</div><div class="flex-1 bg-shruti/30 border-l-4 border-shruti-text px-3 py-2 rounded-r-md"><div class="font-bold text-shruti-text">Shruti</div> <div class="text-xs text-slate-600">Lecture 3</div></div></div>
+                    <div class="bg-amber-50 px-4 py-2 flex items-center justify-center gap-2 text-xs font-medium text-amber-600"><span>🍛 Lunch</span></div>
+                    <div class="p-4 flex gap-4"><div class="w-16 text-xs font-bold text-slate-500 pt-1">14:30</div><div class="flex-1 bg-enrico/30 border-l-4 border-enrico-text px-3 py-2 rounded-r-md"><div class="font-bold text-enrico-text">Enrico</div> <div class="text-xs text-slate-600">Lecture 4</div></div></div>
+                    <div class="bg-slate-50 px-4 py-2 flex items-center justify-center gap-2 text-xs font-medium text-slate-400"><span>☕ Tea Break</span></div>
+                    <div class="p-4 flex gap-4"><div class="w-16 text-xs font-bold text-slate-500 pt-1">16:30</div><div class="flex-1 bg-yiming/30 border-l-4 border-yiming-text px-3 py-2 rounded-r-md"><div class="font-bold text-yiming-text">Yiming</div> <div class="text-xs text-slate-600">Lecture 3</div></div></div>
+                    <div class="p-4 flex gap-4 bg-slate-50">
+                        <div class="w-16 text-xs font-bold text-slate-500 pt-1">18:30</div>
+                        <div class="flex-1 bg-slate-200 border-l-4 border-slate-600 px-3 py-2 rounded-r-md">
+                            <div class="font-bold text-slate-800">Shiraz's Public Lecture</div>
+                            <div class="text-xs text-slate-800 mt-1 italic">Search for Quantum Gravity's work</div>
+                            <div class="text-xs text-slate-600 mt-1">📍 IISER Bhopal</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wed 14 -->
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                <div class="bg-slate-800 px-4 py-3 text-white"><span class="font-bold text-lg">Wed 14 Jan</span></div>
+                <div class="divide-y divide-slate-100">
+                    <div class="p-4 flex gap-4"><div class="w-16 text-xs font-bold text-slate-500 pt-1">09:30</div><div class="flex-1 bg-shiraz/30 border-l-4 border-shiraz-text px-3 py-2 rounded-r-md"><div class="font-bold text-shiraz-text">Shiraz</div> <div class="text-xs text-slate-600">Lecture 3</div></div></div>
+                    <div class="bg-slate-50 px-4 py-2 flex items-center justify-center gap-2 text-xs font-medium text-slate-400"><span>☕ Tea Break</span></div>
+                    <div class="p-4 flex gap-4"><div class="w-16 text-xs font-bold text-slate-500 pt-1">11:30</div><div class="flex-1 bg-shruti/30 border-l-4 border-shruti-text px-3 py-2 rounded-r-md"><div class="font-bold text-shruti-text">Shruti</div> <div class="text-xs text-slate-600">Lecture 4</div></div></div>
+                    <div class="bg-amber-50 px-4 py-2 flex items-center justify-center gap-2 text-xs font-medium text-amber-600"><span>🍛 Lunch</span></div>
+                    <div class="p-4 flex gap-4"><div class="w-16 text-xs font-bold text-slate-500 pt-1">14:30</div><div class="flex-1 bg-simon/30 border-l-4 border-simon-text px-3 py-2 rounded-r-md"><div class="font-bold text-simon-text">Simon</div> <div class="text-xs text-slate-600">Lecture 1</div></div></div>
+                    <div class="bg-slate-50 px-4 py-2 flex items-center justify-center gap-2 text-xs font-medium text-slate-400"><span>☕ Tea Break</span></div>
+                    <div class="p-4 flex gap-4"><div class="w-16 text-xs font-bold text-slate-500 pt-1">16:30</div><div class="flex-1 bg-yiming/30 border-l-4 border-yiming-text px-3 py-2 rounded-r-md"><div class="font-bold text-yiming-text">Yiming</div> <div class="text-xs text-slate-600">Lecture 4</div></div></div>
+                </div>
+            </div>
+
+            <!-- Thu 15 -->
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                <div class="bg-slate-800 px-4 py-3 text-white"><span class="font-bold text-lg">Thu 15 Jan</span></div>
+                <div class="divide-y divide-slate-100">
+                    <div class="p-4 flex gap-4"><div class="w-16 text-xs font-bold text-slate-500 pt-1">09:30</div><div class="flex-1 bg-shiraz/30 border-l-4 border-shiraz-text px-3 py-2 rounded-r-md"><div class="font-bold text-shiraz-text">Shiraz</div> <div class="text-xs text-slate-600">Lecture 4</div></div></div>
+                    <div class="bg-slate-50 px-4 py-2 flex items-center justify-center gap-2 text-xs font-medium text-slate-400"><span>☕ Tea Break</span></div>
+                    <div class="p-4 flex gap-4"><div class="w-16 text-xs font-bold text-slate-500 pt-1">11:30</div><div class="flex-1 bg-simon/30 border-l-4 border-simon-text px-3 py-2 rounded-r-md"><div class="font-bold text-simon-text">Simon</div> <div class="text-xs text-slate-600">Lecture 2</div></div></div>
+                    
+                    <!-- Trip to Sanchi (Mobile) -->
+                    <div class="relative overflow-hidden p-0 bg-teal-900">
+                        <div class="absolute inset-0 bg-[url('https://aws2025.com/Sanchi_stupa.png')] bg-cover bg-center opacity-60"></div>
+                        <div class="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent"></div>
+                        <div class="relative z-10 p-4 flex gap-4 text-white">
+                            <div class="w-16 text-xs font-bold text-teal-300 pt-1">13:00+</div>
+                            <div class="flex-1 font-bold flex items-center gap-2 text-white">
+                                 <i data-lucide="bus" class="w-4 h-4 text-teal-300"></i> <span class="text-shadow-sm">Trip to Sanchi</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fri 16 -->
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                <div class="bg-slate-800 px-4 py-3 text-white"><span class="font-bold text-lg">Fri 16 Jan</span></div>
+                <div class="divide-y divide-slate-100">
+                    <div class="p-4 flex gap-4"><div class="w-16 text-xs font-bold text-slate-500 pt-1">09:30</div><div class="flex-1 bg-simon/30 border-l-4 border-simon-text px-3 py-2 rounded-r-md"><div class="font-bold text-simon-text">Simon</div> <div class="text-xs text-slate-600">Lecture 3</div></div></div>
+                    <div class="bg-slate-50 px-4 py-2 flex items-center justify-center gap-2 text-xs font-medium text-slate-400"><span>☕ Tea Break</span></div>
+                    <div class="p-4 flex gap-4"><div class="w-16 text-xs font-bold text-slate-500 pt-1">11:30</div><div class="flex-1 bg-shota/30 border-l-4 border-shota-text px-3 py-2 rounded-r-md"><div class="font-bold text-shota-text">Shota</div> <div class="text-xs text-slate-600">Lecture 1</div></div></div>
+                    <div class="bg-amber-50 px-4 py-2 flex items-center justify-center gap-2 text-xs font-medium text-amber-600"><span>🍛 Lunch</span></div>
+                    <div class="p-4 flex gap-4"><div class="w-16 text-xs font-bold text-slate-500 pt-1">14:30</div><div class="flex-1 bg-renato/30 border-l-4 border-renato-text px-3 py-2 rounded-r-md"><div class="font-bold text-renato-text">Renato</div> <div class="text-xs text-slate-600">Lecture 1</div></div></div>
+                    <div class="bg-slate-50 px-4 py-2 flex items-center justify-center gap-2 text-xs font-medium text-slate-400"><span>☕ Tea Break</span></div>
+                    <div class="p-4 flex gap-4">
+                        <div class="w-16 text-xs font-bold text-slate-500 pt-1">16:30</div>
+                        <div class="flex-1 bg-colloq/50 border-l-4 border-colloq-text px-3 py-2 rounded-r-md">
+                            <div class="font-bold text-colloq-text">Aninda's Colloquium</div>
+                            <div class="text-xs text-colloq-text/80 mt-1 italic">The Usefulness of Useless String Theory</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sat 17 -->
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                <div class="bg-slate-800 px-4 py-3 text-white"><span class="font-bold text-lg">Sat 17 Jan</span></div>
+                <div class="divide-y divide-slate-100">
+                    <div class="p-4 flex gap-4">
+                        <div class="w-16 text-xs font-bold text-slate-500 pt-1">09:30</div>
+                        <div class="flex-1 bg-colloq/50 border-l-4 border-colloq-text px-3 py-2 rounded-r-md">
+                            <div class="font-bold text-colloq-text">Cristhian's Colloquium</div>
+                            <div class="text-xs text-colloq-text/80 mt-1 italic">Interpreting the Latest Cosmological Data</div>
+                            <div class="text-xs text-slate-500 mt-1">(Online)</div>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 px-4 py-2 flex items-center justify-center gap-2 text-xs font-medium text-slate-400"><span>☕ Tea Break</span></div>
+                    <div class="p-4 flex gap-4"><div class="w-16 text-xs font-bold text-slate-500 pt-1">11:30</div><div class="flex-1 bg-simon/30 border-l-4 border-simon-text px-3 py-2 rounded-r-md"><div class="font-bold text-simon-text">Simon</div> <div class="text-xs text-slate-600">Lecture 4</div></div></div>
+                    <div class="bg-amber-50 px-4 py-2 flex items-center justify-center gap-2 text-xs font-medium text-amber-600"><span>🍛 Lunch</span></div>
+                    <div class="p-4 flex gap-4"><div class="w-16 text-xs font-bold text-slate-500 pt-1">14:30</div><div class="flex-1 bg-shota/30 border-l-4 border-shota-text px-3 py-2 rounded-r-md"><div class="font-bold text-shota-text">Shota</div> <div class="text-xs text-slate-600">Lecture 2</div></div></div>
+                    <div class="bg-slate-50 px-4 py-2 flex items-center justify-center gap-2 text-xs font-medium text-slate-400"><span>☕ Tea Break</span></div>
+                    <div class="p-4 flex gap-4"><div class="w-16 text-xs font-bold text-slate-500 pt-1">16:30</div><div class="flex-1 bg-julio/30 border-l-4 border-julio-text px-3 py-2 rounded-r-md"><div class="font-bold text-julio-text">Julio</div> <div class="text-xs text-slate-600">Lecture 1</div></div></div>
+                </div>
+            </div>
+
+            <!-- Sun 18 -->
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                <div class="bg-slate-800 px-4 py-3 text-white"><span class="font-bold text-lg">Sun 18 Jan</span></div>
+                <div class="divide-y divide-slate-100">
+                    <div class="p-4 flex gap-4"><div class="w-16 text-xs font-bold text-slate-500 pt-1">09:30</div><div class="flex-1 bg-shota/30 border-l-4 border-shota-text px-3 py-2 rounded-r-md"><div class="font-bold text-shota-text">Shota</div> <div class="text-xs text-slate-600">Lecture 3</div></div></div>
+                    <div class="bg-slate-50 px-4 py-2 flex items-center justify-center gap-2 text-xs font-medium text-slate-400"><span>☕ Tea Break</span></div>
+                    <div class="p-4 flex gap-4"><div class="w-16 text-xs font-bold text-slate-500 pt-1">11:30</div><div class="flex-1 bg-julio/30 border-l-4 border-julio-text px-3 py-2 rounded-r-md"><div class="font-bold text-julio-text">Julio</div> <div class="text-xs text-slate-600">Lecture 2</div></div></div>
+                    <div class="bg-amber-50 px-4 py-2 flex items-center justify-center gap-2 text-xs font-medium text-amber-600"><span>🍛 Lunch</span></div>
+                    <div class="p-4 flex gap-4"><div class="w-16 text-xs font-bold text-slate-500 pt-1">14:30</div><div class="flex-1 bg-renato/30 border-l-4 border-renato-text px-3 py-2 rounded-r-md"><div class="font-bold text-renato-text">Renato</div> <div class="text-xs text-slate-600">Lecture 2</div></div></div>
+                    <div class="bg-slate-50 px-4 py-2 flex items-center justify-center gap-2 text-xs font-medium text-slate-400"><span>☕ Tea Break</span></div>
+                    <div class="p-4 flex gap-4"><div class="w-16 text-xs font-bold text-slate-500 pt-1">16:30</div><div class="flex-1 bg-shota/30 border-l-4 border-shota-text px-3 py-2 rounded-r-md"><div class="font-bold text-shota-text">Shota</div> <div class="text-xs text-slate-600">Lecture 4</div></div></div>
+                    <div class="p-4 flex gap-4"><div class="w-16 text-xs font-bold text-slate-500 pt-1">Evening</div><div class="flex-1 bg-colloq/50 border-l-4 border-colloq-text px-3 py-2 rounded-r-md"><div class="font-bold text-colloq-text">Ashoke's Colloquium</div></div></div>
+                </div>
+            </div>
+
+            <!-- Mon 19 -->
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                <div class="bg-slate-800 px-4 py-3 text-white"><span class="font-bold text-lg">Mon 19 Jan</span></div>
+                <div class="divide-y divide-slate-100">
+                    <div class="p-4 flex gap-4 bg-slate-50">
+                        <div class="w-16 text-xs font-bold text-slate-500 pt-1">11:00 AM</div>
+                        <div class="flex-1 bg-slate-200 border-l-4 border-slate-600 px-3 py-2 rounded-r-md">
+                            <div class="font-bold text-slate-800">Ashoke's Public Lecture</div>
+                            <div class="text-xs text-slate-800 mt-1 italic">Search for a unified theory</div>
+                            <div class="text-xs text-slate-600 mt-1">📍 Regional Science Center, Bhopal</div>
+                        </div>
+                    </div>
+                    <div class="bg-amber-50 px-4 py-2 flex items-center justify-center gap-2 text-xs font-medium text-amber-600"><span>🍛 Lunch</span></div>
+                    <div class="p-4 flex gap-4"><div class="w-16 text-xs font-bold text-slate-500 pt-1">14:30</div><div class="flex-1 bg-renato/30 border-l-4 border-renato-text px-3 py-2 rounded-r-md"><div class="font-bold text-renato-text">Renato</div> <div class="text-xs text-slate-600">Lecture 3</div></div></div>
+                    <div class="bg-slate-50 px-4 py-2 flex items-center justify-center gap-2 text-xs font-medium text-slate-400"><span>☕ Tea Break</span></div>
+                    <div class="p-4 flex gap-4"><div class="w-16 text-xs font-bold text-slate-500 pt-1">16:30</div><div class="flex-1 bg-julio/30 border-l-4 border-julio-text px-3 py-2 rounded-r-md"><div class="font-bold text-julio-text">Julio</div> <div class="text-xs text-slate-600">Lecture 3</div></div></div>
+                </div>
+            </div>
+
+            <!-- Tue 20 -->
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                <div class="bg-slate-800 px-4 py-3 text-white"><span class="font-bold text-lg">Tue 20 Jan</span></div>
+                <div class="divide-y divide-slate-100">
+                    <div class="p-4 flex gap-4"><div class="w-16 text-xs font-bold text-slate-500 pt-1">09:30</div><div class="flex-1 bg-julio/30 border-l-4 border-julio-text px-3 py-2 rounded-r-md"><div class="font-bold text-julio-text">Julio</div> <div class="text-xs text-slate-600">Lecture 4</div></div></div>
+                    <div class="bg-slate-50 px-4 py-2 flex items-center justify-center gap-2 text-xs font-medium text-slate-400"><span>☕ Tea Break</span></div>
+                    <div class="p-4 flex gap-4"><div class="w-16 text-xs font-bold text-slate-500 pt-1">11:30</div><div class="flex-1 bg-renato/30 border-l-4 border-renato-text px-3 py-2 rounded-r-md"><div class="font-bold text-renato-text">Renato</div> <div class="text-xs text-slate-600">Lecture 4</div></div></div>
+                    <div class="p-4 flex gap-4 bg-gray-50 text-center justify-center text-gray-400 text-sm font-medium">
+                        Free Afternoon
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer class="mt-12 text-center text-slate-400 text-xs pb-8 border-t border-slate-200 pt-8">
+            <p>&copy; 2025 Asian Winter School on Strings, Particles and Cosmology. Schedule subject to change.</p>
+        </footer>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Icon initialization
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            } else {
+                setTimeout(function() {
+                    if (typeof lucide !== 'undefined') {
+                        lucide.createIcons();
+                    }
+                }, 100);
+            }
+
+            // Header shrink logic
+            const header = document.getElementById('main-header');
+            
+            // Function to set body padding based on initial header height
+            // This prevents content from hiding behind the fixed header on load
+            function adjustBodyPadding() {
+                if (!header.classList.contains('is-scrolled')) {
+                    document.body.style.paddingTop = header.offsetHeight + 'px';
+                }
+            }
+
+            // Initial adjustment
+            adjustBodyPadding();
+            // Re-adjust on resize
+            window.addEventListener('resize', adjustBodyPadding);
+
+            // Scroll listener
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 20) { // Threshold to trigger shrink
+                    header.classList.add('is-scrolled');
+                } else {
+                    header.classList.remove('is-scrolled');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
